@@ -1,14 +1,14 @@
 @extends('layout')
 @section('css')
 <!-- third party css -->
-    <link href="{{ asset('assets/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
 <!-- third party css end -->
 @endsection
 @section('js')
- <!-- third party js -->
+<!-- third party js -->
 <script src="{{ asset('assets/libs/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/libs/datatables/dataTables.bootstrap4.js') }}"></script>
 <script src="{{ asset('assets/libs/datatables/dataTables.responsive.min.js') }}"></script>
@@ -38,22 +38,20 @@
                     <li class="breadcrumb-item active">Lĩnh vực</li>
                 </ol>
             </div>
-            <h4 class="page-title">Starter</h4>
+            <h4 class="page-title">Danh sách lĩnh vực</h4>
         </div>
     </div>
-</div>     
-<!-- end page title --> 
+</div>
+<!-- end page title -->
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Basic Data Table</h4>
-                    <a href="{{ route('linh-vuc.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới
-                    </a>
+                <h4 class="header-title">Thêm mới lĩnh vực</h4>
+                <a href="{{ route('linh-vuc.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới
+                </a>
                 <p class="text-muted font-13 mb-4">
-                    DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
-                    function:
-                    <code>$().DataTable();</code>.
+                    DataTables danh sách lĩnh vực:
                 </p>
 
                 <table id="basic-datatable" class="table dt-responsive nowrap">
@@ -61,27 +59,25 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên lĩnh vực</th>
-                            <th>Tên lĩnh vực</th>
+                            <th>Chỉnh sửa | Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if(isset($linhVucs))
-                            @foreach($linhVucs as $linhVuc)
-                            <tr>
-                                <th>{{$linhVuc->id}}</th>
-                                <th>{{$linhVuc->ten_linh_vuc}}</th>
-                                <th>
-                                <a class="btn btn-purple waves-effect waves-light">
-                                    <i class="mdi mdi-grease-pencil">
-                                    </i>
+                        @foreach($linhVucs as $linhVuc)
+                        <tr>
+                            <th>{{$linhVuc->id}}</th>
+                            <th>{{$linhVuc->ten_linh_vuc}}</th>
+                            <th>
+                                <a href="{{ route('linh-vuc.cap-nhat', ['$id' =>$linhVuc->id]) }}" class="btn btn-purple waves-effect waves-light">
+                                    <i class="mdi mdi-grease-pencil"></i>
                                 </a>
-                                <a class="btn btn-danger waves-effect waves-light">
-                                    <i class="mdi mdi-delete">
-                                    </i>
+                                <a href="{{ route('linh-vuc.xoa', ['$id' =>$linhVuc->id]) }}" class="btn btn-danger waves-effect waves-light">
+                                    <i class="mdi mdi-delete"></i>
                                 </a>
-                                </th>
-                            </tr>   
-                            @endforeach 
+                            </th>
+                        </tr>
+                        @endforeach
                         @endif
                     </tbody>
                 </table>

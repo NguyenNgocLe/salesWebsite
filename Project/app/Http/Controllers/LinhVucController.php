@@ -2,32 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\LinhVuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\LinhVuc;
 
 class LinhVucController extends Controller
 {
-    
+
     public function index()
     {
         $linhVucs = LinhVuc::all();
-        return view('linh-vuc.danh-sach',compact('linhVucs'));
+        return view('linh-vuc.danh-sach', compact('linhVucs'));
     }
 
     public function create()
-    {  
+    {
         // hien thi form them moi 
         return view('linh-vuc.them-moi');
     }
 
     public function store(Request $request)
     {
-        $linhVuc = new LinhVuc();
+        // them moi 1 linh vuc
+        $linhVuc = new LinhVuc;
         $linhVuc->ten_linh_vuc = $request->ten_linh_vuc;
-        $linhVuc.save($linhVuc);
+        $linhVuc->save();
         return redirect()->route('linh-vuc.danh-sach');
-        // luu 1 doi tuong moi vao database 
     }
 
     public function show($id)
@@ -38,29 +38,32 @@ class LinhVucController extends Controller
     public function edit($id)
     {
         // hien thi len form cap nhat
+        $linhVuc = LinhVuc::find($id);
+        return view('linh-vuc.them-moi', compact('linhVuc'));
     }
 
     public function update(Request $request, $id)
     {
         // cap nhat doi tuong vao database
+        $linhVuc = LinhVuc::find($id);
+        $linhVuc->ten_linh_vuc = $request->ten_linh_vuc;
+        $linhVuc->save();
+        return redirect()->route('linh-vuc.danh-sach');
     }
 
     public function destroy($id)
     {
         // xoa bo doi tuong
+        $linhVuc = LinhVuc::find($id);
+        $linhVuc->delete();
+        return redirect()->route('linh-vuc.danh-sach');
     }
 
     public function delete($id)
-    {
-
-    }
+    { }
 
     public function onlyTrashed()
-    {
-
-    }
+    { }
     public function restore($id)
-    {
-
-    }
+    { }
 }

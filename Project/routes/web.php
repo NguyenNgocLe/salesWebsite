@@ -10,7 +10,7 @@ Route::prefix('quan-tri')->group(function(){
             Route::get('them-moi', "LinhVucController@create")->name('them-moi');
             Route::post('them-moi', "LinhVucController@store")->name('xu-ly-them-moi');
             Route::get('cap-nhat/{id}', "LinhVucController@edit")->name('cap-nhat');
-            Route::put('cap-nhat/{id}', "LinhVucController@update")->name('xu-ly-cap-nhat');
+            Route::post('cap-nhat/{id}', "LinhVucController@update")->name('xu-ly-cap-nhat');
             Route::get('xoa/{id}',"LinhVucController@destroy")->name('xoa');
             // 
             Route::get('thung-rac', "LinhVucController@onlyTrashed")->name('thung-rac');
@@ -38,4 +38,3 @@ Route::name('quan-tri')->group(function(){
     
     
 });
-?>
