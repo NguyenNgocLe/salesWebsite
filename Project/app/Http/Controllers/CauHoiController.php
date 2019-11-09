@@ -56,6 +56,9 @@ class CauHoiController extends Controller
 
     public function destroy($id)
     {
-        //
+        // cập nhật trạng thái xóa lại theo thời gian xóa
+        $cauHoi = CauHoi::find($id);
+        $cauHoi->delete();
+        return redirect()->route('cau-hoi.danh-sach');
     }
 }

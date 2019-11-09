@@ -82,7 +82,7 @@
                                     <i class="mdi mdi-grease-pencil">
                                     </i>
                                 </a>
-                                <a href="" class="btn btn-danger waves-effect waves-light">
+                                <a href="{{ route('cau-hoi.xoa', ['$id' => $cauHoi->id]) }}" class="btn btn-danger waves-effect waves-light">
                                     <i class="mdi mdi-delete">
                                     </i>
                                 </a>
