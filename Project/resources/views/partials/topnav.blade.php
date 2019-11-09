@@ -345,8 +345,8 @@
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#">
-                            <i class="la la-cube"></i>Apps <div class="arrow-down"></div></a>
+                        <a href="">
+                            <i class="la la-cube"></i>Lĩnh vực <div class="arrow-down"></div></a>
                         <ul class="submenu">
                             <li>
                                 <a href="apps-calendar.html">Calendar</a>
@@ -378,7 +378,7 @@
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#"> <i class="la la-clone"></i>Layouts <div class="arrow-down"></div></a>
+                        <a href="#"> <i class="la la-clone"></i>Câu hỏi <div class="arrow-down"></div></a>
                         <ul class="submenu">
                             <li>
                                 <a href="layouts-topbar-dark.html">Topbar Dark</a>

@@ -26,7 +26,7 @@
 <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
 
 <!-- third party js ends -->
-@endsection
+@endsection 
 @section('main-content')
 <div class="row">
     <div class="col-12">
@@ -47,8 +47,8 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Thêm câu hỏi</h4>
-                <a href="" class="btn btn-primary waves-effect waves-light">Thêm mới
+                <h4 class="header-title">Thêm mới câu hỏi</h4>
+                <a href="{{ route('cau-hoi.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới
                 </a>
                 <p class="text-muted font-13 mb-4">
                     DataTables danh sách câu hỏi:
@@ -95,6 +95,6 @@
 
             </div> <!-- end card body-->
         </div> <!-- end card -->
-    </div><!-- end col-->
-</div>
+    </div><!-- end col -->
+</div> 
 @endsection
