@@ -78,7 +78,7 @@
                             <td>{{$cauHoi->phuong_an_d}}</td>
                             <td>{{$cauHoi->dap_an}}</td>
                             <th>
-                                <a href="" class="btn btn-purple waves-effect waves-light">
+                                <a href="{{ route('cau-hoi.cap-nhat', ['$id' => $cauHoi->id]) }}" class="btn btn-purple waves-effect waves-light">
                                     <i class="mdi mdi-grease-pencil">
                                     </i>
                                 </a>

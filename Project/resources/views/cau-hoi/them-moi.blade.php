@@ -27,8 +27,8 @@
                             <label for="ten_linh_vuc">Chọn lĩnh vực:</label>    
                             <select class="custom-select" id="linh_vuc" name="linh_vuc">
                                 <option>-Chọn Lĩnh vực-</option>
-                            @foreach($cauHois as $linhVuc)
-                                <option @if(isset($cauHoi) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{$linhVuc->id}}"> {{$linhVuc->ten_linh_vuc}}</option>
+                            @foreach($listLinhVuc as $linhVuc)
+                                <option @if(isset($cauHoi) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{ $linhVuc->id }}"> {{ $linhVuc->ten_linh_vuc }}</option>
                             @endforeach
                     </select>
                         </div>
