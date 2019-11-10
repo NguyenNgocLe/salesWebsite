@@ -35,10 +35,10 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Quản trị</a></li>
                     <li class="breadcrumb-item"><a href="javascript: void(0);">danh sách</a></li>
-                    <li class="breadcrumb-item active">Gói Credit</li>
+                    <li class="breadcrumb-item active">Lịch sử mua gói Credit</li>
                 </ol>
             </div>
-            <h4 class="page-title">Danh sách gói Credit</h4>
+            <h4 class="page-title">Danh sách lịch sử gói credit</h4>
         </div>
     </div>
 </div>

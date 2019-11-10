@@ -35,7 +35,7 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Quản trị</a></li>
                     <li class="breadcrumb-item"><a href="javascript: void(0);">danh sách</a></li>
-                    <li class="breadcrumb-item active">Lĩnh vực</li>
+                    <li class="breadcrumb-item active">Câu hỏi</li>
                 </ol>
             </div>
             <h4 class="page-title">Danh sách câu hỏi</h4>

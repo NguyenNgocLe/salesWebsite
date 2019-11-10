@@ -335,30 +335,37 @@
                 <ul class="navigation-menu">
                    @if (Auth::check())
                         <li class="has-submenu">
-                            <a href="{{ route('linh-vuc.danh-sach') }}">
-                                <i class="la la-cube"></i>Lĩnh vực <div class="arrow-down"></div></a>
+                            <a href="{{ route('linh-vuc.danh-sach') }}">Lĩnh vực <div class="arrow-down"></div></a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="#"> <i class="la la-clone"></i>Câu hỏi <div class="arrow-down"></div></a>
+                            <a href="{{ route('cau-hoi.danh-sach') }}">Câu hỏi <div class="arrow-down"></div></a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="#"> <i class="la la-briefcase"></i>Elements <div class="arrow-down"></div></a>
+                            <a href="{{ route('goi-credit.danh-sach') }}">Gói credit <div class="arrow-down"></div></a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="#">
-                                <i class="la la-diamond"></i>Components <div class="arrow-down"></div></a>
+                            <a href="{{ route('nguoi-choi.danh-sach') }}">Người chơi <div class="arrow-down"></div></a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="#"> <i class="la la-flask"></i>Admin UI <div class="arrow-down"></div></a>
+                            <a href="{{ route('luot-choi.danh-sach') }}">Lượt chơi<div class="arrow-down"></div></a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="#"> <i class="la la-file-text-o"></i>Pages <div class="arrow-down"></div></a>
+                            <a href="{{ route('chi-tiet-luot-choi.danh-sach') }}">Chi tiết lượt chơi<div class="arrow-down"></div></a>
                         </li>
+                        <li class="has-submenu">
+                            <a href="{{ route('lich-su-mua-credit.danh-sach') }}">Lịch sử mua credit<div class="arrow-down"></div></a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">Cấu hình<div class="arrow-down"></div></a>
+                        </li>
+                        <li class="has-submenu">
+                                <a href="{{ route('quan-tri-vien.danh-sach') }}">Quản trị viên<div class="arrow-down"></div></a>
+                            </li>
                    @endif
 
                 </ul>
