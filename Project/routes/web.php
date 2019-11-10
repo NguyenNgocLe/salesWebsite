@@ -30,11 +30,8 @@ Route::middleware('auth')->group(function(){
                 Route::get('khoi-phuc/{id}', "LinhVucController@restore")->name('khoi-phuc');
                 Route::delete('xoa-bo/{id}',"LinhVucController@delete")->name('xoa-bo');
             });
-        });  
-        
-    });
-        
-    Route::prefix('quan-tri')->group(function(){
+        }); 
+        // 
         Route::prefix('cau-hoi')->group(function(){
             Route::name('cau-hoi.')->group(function (){
                 Route::get('/', "CauHoiController@index")->name('danh-sach');
@@ -49,9 +46,7 @@ Route::middleware('auth')->group(function(){
                 Route::delete('xoa-bo/{id}',"CauHoiController@delete")->name('xoa-bo');
             });
         });
-    });
-    
-    Route::prefix('quan-tri')->group(function(){
+        //
         Route::prefix('goi-credit')->group(function(){
             Route::name('goi-credit.')->group(function (){
                 Route::get('/', "GoiCreditController@index")->name('danh-sach');
@@ -66,9 +61,7 @@ Route::middleware('auth')->group(function(){
                 Route::delete('xoa-bo/{id}',"GoiCreditController@delete")->name('xoa-bo');
             });
         });
-    });
-    
-    Route::prefix('quan-tri')->group(function(){
+        //
         Route::prefix('lich-su-mua-credit')->group(function(){
             Route::name('lich-su-mua-credit.')->group(function (){
                 Route::get('/', "LichSuMuaCreditController@index")->name('danh-sach');
@@ -83,9 +76,7 @@ Route::middleware('auth')->group(function(){
                 Route::delete('xoa-bo/{id}',"LichSuMuaCreditController@delete")->name('xoa-bo');
             });
         });
-    });
-    
-    Route::prefix('quan-tri')->group(function(){
+        //
         Route::prefix('nguoi-choi')->group(function(){
             Route::name('nguoi-choi.')->group(function (){
                 Route::get('/', "NguoiChoiController@index")->name('danh-sach');
@@ -100,9 +91,7 @@ Route::middleware('auth')->group(function(){
                 Route::delete('xoa-bo/{id}',"NguoiChoiController@delete")->name('xoa-bo');
             });
         });
-    });
-    
-    Route::prefix('quan-tri')->group(function(){
+        //
         Route::prefix('luot-choi')->group(function(){
             Route::name('luot-choi.')->group(function (){
                 Route::get('/', "LuotChoiController@index")->name('danh-sach');
@@ -113,8 +102,8 @@ Route::middleware('auth')->group(function(){
             });
         });
     });
-
 });
+// update
 
 
 

@@ -26,6 +26,7 @@ class QuanTriVienController extends Controller
 
     public function dangXuat()
     {
+        Auth::logout();
         return view('quan-tri-vien.dang-nhap');
     }
 
