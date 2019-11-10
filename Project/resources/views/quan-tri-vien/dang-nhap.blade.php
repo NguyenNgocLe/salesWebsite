@@ -1,4 +1,5 @@
 @extends('layout')
+@section('css')
 @section('title')
     Trang đăng nhập 
 @endsection
@@ -13,36 +14,29 @@
 
                             <div class="card-body p-4">
                                 
-                                <div class="text-center w-75 m-auto">
-                                    <a href="index.html">
-                                        <span><img src="assets/images/logo-dark.png" alt="" height="26"></span>
-                                    </a>
-                                    <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
-                                </div>
+                                <h5 class="auth-title">Đăng nhập</h5>
 
-                                <h5 class="auth-title">Sign In</h5>
-
-                                <form action="#">
-
+                                <form action="{{ route('quan-tri-vien.xu-ly-dang-nhap') }}" method="POST">
+                                    @csrf
                                     <div class="form-group mb-3">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <label for="emailaddress">Tên đăng nhập</label>
+                                        <input class="form-control" type="text" id="emailaddress" name="ten_dang_nhap" required="" placeholder="Tên đăng nhập">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <label for="password">Mật khẩu</label>
+                                        <input class="form-control" type="password" required="" name="mat_khau" id="password" placeholder="Mật khẩu">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <div class="custom-control custom-checkbox checkbox-info">
                                             <input type="checkbox" class="custom-control-input" id="checkbox-signin">
-                                            <label class="custom-control-label" for="checkbox-signin">Remember me</label>
+                                            <label class="custom-control-label" for="checkbox-signin">Nhớ mật khẩu</label>
                                         </div>
                                     </div>
 
                                     <div class="form-group mb-0 text-center">
-                                        <button class="btn btn-danger btn-block" type="submit"> Log In </button>
+                                        <button class="btn btn-danger btn-block" type="submit"> Đăng nhập </button>
                                     </div>
 
                                 </form>

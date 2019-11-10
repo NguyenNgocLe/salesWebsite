@@ -10,18 +10,25 @@ class LuotChoiController extends Controller
 {
     public function index()
     {
-        $luotChoi = LuotChoi::all();
-        return view('luot-choi.danh-sach', compact('luot-chois'));
+        $luotChois = LuotChoi::all();
+        return view('luot-choi.danh-sach', compact('luotChois'));
     }
 
     public function create()
     {
         // hiển thị form thêm mới
+        return view('luot-choi.them-moi');
     }
 
     public function store(Request $request)
     {
-        //
+        // thêm mới lượt chơi vào database
+        $luotChoi = new LuotChoi();
+        $luotChoi->nguoi_choi_id = $request->nguoi_choi_id;
+        $luotChoi->so_cau = $request->so_cau;
+        $luotChoi->diem = $request->diem;
+        $luotChoi->save();
+        return redirect()->route('luot-choi.danh-sach');
     }
 
     public function show($id)
