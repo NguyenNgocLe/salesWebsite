@@ -10,7 +10,7 @@
                     @else
                     Thêm
                     @endif
-                    quản trị viên
+                    Quản trị viên
                 </h4>
                 @if(isset($quanTriVien))
                 <form action="{{ route('quan-tri-vien.xu-ly-cap-nhat', ['$id' => $quanTriVien->id]) }}" method="POST">
@@ -36,7 +36,7 @@
                             @else
                             Thêm
                             @endif
-                            quản trị viên
+                            Quản trị viên
                         </button>
                         <a href="{{ route('quan-tri-vien.danh-sach') }}" class="btn btn-warning waves-effect waves-light">
                             Hủy

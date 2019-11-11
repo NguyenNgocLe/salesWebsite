@@ -1,4 +1,4 @@
-{{-- @extends('layout')
+@extends('layout')
 @section('main-content')
 <div class="row">
     <div class="col-lg-6">
@@ -20,10 +20,10 @@
                         @csrf
                         <div class="form-group">
                                 <label for="id_nguoi_choi">ID người chơi:</label>
-                                <select class="custom-select" id="nguoi_choi_id" name="nguoi_choi_id">
+                                <select class="custom-select" id="luot_choi_id" name="nguoi_choi_id">
                                         <option>-Chọn ID người chơi-</option>
-                                        @foreach($nguoiChoi as $list) <!-- -->
-                                            <option @if(isset($cauHoi) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{ $linhVuc->id }}"> {{ $linhVuc->ten_linh_vuc }}</option>
+                                        @foreach($luotChois as $luotChoi) <!-- -->
+                                            <option @if(isset($luotChois) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{ $linhVuc->id }}"> {{ $linhVuc->ten_linh_vuc }}</option>
                                         @endforeach
                                 </select>
                                 <input type="text" class="form-control" id="nguoi_choi_id" name="nguoi_choi_id" @if(isset($luotChoi)) value="{{ $luotChoi->nguoi_choi_id }}" @endif>
@@ -58,4 +58,4 @@
             </div> <!-- end card-body-->
         </div> <!-- end card-->
     </div>
-    @endsection --}}
+    @endsection

@@ -72,7 +72,7 @@ class QuanTriVienController extends Controller
         // cập nhật quản trị viên vào database
         $quanTriVien = QuanTriVien::find($id);
         $quanTriVien->ten_dang_nhap = $request->ten_dang_nhap;
-        $quanTriVien->mat_khau = $request->mat_khau;
+        $quanTriVien->mat_khau = Hash::make($request->mat_khau);
         $quanTriVien->ho_ten = $request->ho_ten;
         $quanTriVien->save();
         return redirect()->route('quan-tri-vien.danh-sach');

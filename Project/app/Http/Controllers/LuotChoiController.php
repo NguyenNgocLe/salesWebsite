@@ -38,16 +38,24 @@ class LuotChoiController extends Controller
 
     public function edit($id)
     {
-        //
+        // hiển thị form cập nhật theo id
+        $luotChoi = LuotChoi::find($id);
+        return view('luot-choi.them-moi', compact('luotChoi'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        // cập nhật người chơi vào database
+        $luotChoi = LuotChoi::find($id);
+        $luotChoi->so_cau = $request->so_cau;
+        $luotChoi->diem = $request->diem;
+        $luotChoi->save();
+        return redirect()->route('luot-choi.danh-sach');
     }
 
     public function destroy($id)
     {
-        //
+        // cập nhật trạng thái deleted vào database, ẩn item trên danh sách
     }
 }
+// dang fix dở dang phần này 

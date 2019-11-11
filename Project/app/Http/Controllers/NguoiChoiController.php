@@ -54,7 +54,7 @@ class NguoiChoiController extends Controller
         // cập nhật người chơi vào database
         $nguoiChoi = NguoiChoi::find($id);
         $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
-        $nguoiChoi->mat_khau = $request->mat_khau;
+        $nguoiChoi->mat_khau = Hash::make($request->mat_khau);
         $nguoiChoi->email = $request->email;
         $nguoiChoi->hinh_dai_dien = $request->hinh_dai_dien;
         $nguoiChoi->diem_cao_nhat = $request->diem_cao_nhat;

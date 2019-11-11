@@ -362,10 +362,21 @@
                         </li>
                         <li class="has-submenu">
                             <a href="#">Cấu hình<div class="arrow-down"></div></a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="admin-widgets.html">Cấu hình điểm câu hỏi</a>
+                                </li>
+                                <li>
+                                    <a href="admin-sweet-alert.html">Cấu hình app</a>
+                                </li>
+                                <li>
+                                    <a href="admin-nestable.html">Cấu hình trợ giúp</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="has-submenu">
-                                <a href="{{ route('quan-tri-vien.danh-sach') }}">Quản trị viên<div class="arrow-down"></div></a>
-                            </li>
+                            <a href="{{ route('quan-tri-vien.danh-sach') }}">Quản trị viên<div class="arrow-down"></div></a>
+                        </li>
                    @endif
 
                 </ul>

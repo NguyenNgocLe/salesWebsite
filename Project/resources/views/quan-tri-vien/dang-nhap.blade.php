@@ -42,7 +42,7 @@
                                 </form>
 
                                 <div class="text-center">
-                                    <h5 class="mt-3 text-muted">Sign in with</h5>
+                                    <h5 class="mt-3 text-muted">Đăng nhập với...</h5>
                                     <ul class="social-list list-inline mt-3 mb-0">
                                         <li class="list-inline-item">
                                             <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
@@ -65,8 +65,8 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p> <a href="pages-recoverpw.html" class="text-muted ml-1">Forgot your password?</a></p>
-                                <p class="text-muted">Don't have an account? <a href="pages-register.html" class="text-muted ml-1"><b class="font-weight-semibold">Sign Up</b></a></p>
+                                <p> <a href="pages-recoverpw.html" class="text-muted ml-1">Bạn quên mật khẩu?</a></p>
+                                <p class="text-muted">Bạn không có tài khoản? <a href="pages-register.html" class="text-muted ml-1"><b class="font-weight-semibold">Đăng ký</b></a></p>
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->

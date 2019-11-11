@@ -11,7 +11,7 @@
                     @else
                         Thêm
                     @endif
-                        người chơi
+                        Người chơi
                 </h4>
                 @if(isset($nguoiChoi))
                     <form action="{{ route('nguoi-choi.xu-ly-cap-nhat', ['$id' => $nguoiChoi->id]) }}" method="POST">
@@ -49,7 +49,7 @@
                             @else
                                 Thêm
                             @endif
-                                người chơi
+                                Người chơi
                         </button>
                         <a href="{{ route('nguoi-choi.danh-sach') }}" class="btn btn-warning waves-effect waves-light">
                             Hủy
