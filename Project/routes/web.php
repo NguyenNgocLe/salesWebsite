@@ -11,7 +11,7 @@ Route::prefix('quan-tri')->group(function () {
             Route::post('them-moi', "QuanTriVienController@store")->name('xu-ly-them-moi');
             Route::get('cap-nhat/{id}', "QuanTriVienController@edit")->name('cap-nhat');
             Route::post('cap-nhat/{id}', "QuanTriVienController@update")->name('xu-ly-cap-nhat');
-            Route::get('/dang-nhap', "QuanTriVienController@DangNhap")->name('dang-nhap');
+            Route::get('/dang-nhap', "QuanTriVienController@DangNhap")->name('dang-nhap')->middleware('guest');
             Route::get('xoa/{id}', "QuanTriVienController@destroy")->name('xoa');
             Route::get('thung-rac', "QuanTriVienController@onlyTrashed")->name('thung-rac');
             Route::get('khoi-phuc/{id}', "QuanTriVienController@restore")->name('khoi-phuc');

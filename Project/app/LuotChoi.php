@@ -12,4 +12,9 @@ class LuotChoi extends Model
     {
         return $this->belongsToMany("App\CauHoi", "chi_tiet_luot_choi");
     }
+
+    public function nguoiChoi()
+    {
+        return $this->belongsTo('App\NguoiChoi');
+    }
 }

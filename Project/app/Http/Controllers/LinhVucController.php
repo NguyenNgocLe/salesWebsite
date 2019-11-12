@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LinhVuc;
-
+use App\Http\Requests\ThemLinhVucRequest;
 class LinhVucController extends Controller
 {
 
@@ -21,7 +21,7 @@ class LinhVucController extends Controller
         return view('linh-vuc.them-moi');
     }
 
-    public function store(Request $request)
+    public function store(ThemLinhVucRequest $request)
     {
         // them moi 1 linh vuc
         $linhVuc = new LinhVuc;

@@ -47,7 +47,7 @@ class GoiCreditController extends Controller
         // cập nhật gói credit theo id vào database
         $goiCredit = GoiCredit::find($id);
         $goiCredit->ten_goi = $request->ten_goi;
-        $goiCredit->credit = $request->credit;
+        $goiCredit->credit  = $request->credit;
         $goiCredit->so_tien = $request->so_tien;
         $goiCredit->save();
         return redirect()->route('goi-credit.danh-sach');

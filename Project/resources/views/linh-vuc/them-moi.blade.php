@@ -12,6 +12,15 @@
                     @endif
                     lĩnh vực
                 </h4>
+
+                @if($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
+
                 @if(isset($linhVuc))
                 <form action="{{ route('linh-vuc.xu-ly-cap-nhat', ['$id' => $linhVuc->id]) }}" method="POST">
                     @else

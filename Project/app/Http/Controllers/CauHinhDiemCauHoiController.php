@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CauHinhDiemCauHoiSeeder extends Controller
+class CauHinhDiemCauHoiController extends Controller
 {
+    
     public function index()
     {
         //

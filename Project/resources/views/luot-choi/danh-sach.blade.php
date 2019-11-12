@@ -59,6 +59,7 @@
                         <tr>
                             <th>ID người chơi</th>
                             <th>Số câu</th>
+                            <th>Nguoi choi</th>
                             <th>Điểm</th>
                             <th>Cập nhật</th>
                         </tr>
@@ -67,14 +68,15 @@
                         @if(isset($luotChois))
                         @foreach($luotChois as $luotChoi)
                         <tr>
-                            <th>{{$luotChoi->id}}</th>
-                            <th>{{$luotChoi->so_cau}}</th>
-                            <th>{{$luotChoi->diem}}</th>
-                            <th>
+                            <td>{{$luotChoi->id}}</td>
+                            <td>{{$luotChoi->nguoiChoi->ten_dang_nhap}}</td>
+                            <td>{{$luotChoi->so_cau}}</td>
+                            <td>{{$luotChoi->diem}}</td>
+                            <td>
                                 <a href="{{ route('luot-choi.cap-nhat', ['$id' =>$luotChoi->id]) }}" class="btn btn-purple waves-effect waves-light">
                                     <i class="mdi mdi-grease-pencil"></i>
                                 </a>
-                            </th>
+                            </td>
                         </tr>
                         @endforeach
                         @endif
