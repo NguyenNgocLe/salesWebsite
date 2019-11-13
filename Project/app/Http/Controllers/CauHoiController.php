@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use App\CauHoi;
 use App\LinhVuc;
 use Illuminate\Support\Facades\DB; 
+use App\Http\Requests\ThemCauHoiRequest;
+use App\Http\Requests\CapNhatCauHoiRequest;
 
 class CauHoiController extends Controller
 {
     public function index()
     {
-        $cauHois = CauHoi::all();
+        $linhVucs = LinhVuc::all();
+        $cauHois = CauHoi::whereIn('linh_vuc_id', $linhVucs->modelKeys())->get();
         return view('cau-hoi.danh-sach', compact('cauHois'));
     }
 
@@ -22,7 +25,7 @@ class CauHoiController extends Controller
         return view('cau-hoi.them-moi', compact('listLinhVuc'));
     }
 
-    public function store(Request $request)
+    public function store(ThemCauHoiRequest $request)
     {
         // thêm 1 câu hỏi vào database
         $cauHoi = new CauHoi();
@@ -50,7 +53,7 @@ class CauHoiController extends Controller
         return view('cau-hoi.them-moi', compact('cauHoi','listLinhVuc'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CapNhatCauHoiRequest $request, $id)
     {
         // cập nhật câu hỏi vào database
         $cauHoi = CauHoi::find($id);
@@ -62,6 +65,7 @@ class CauHoiController extends Controller
         $cauHoi->phuong_an_d = $request->phuong_an_d;
         $cauHoi->dap_an      = $request->dap_an;
         $cauHoi->save();
+        $msg = "Cập nhật câu hỏi thành công";
         return redirect()->route('cau-hoi.danh-sach');
     }
 

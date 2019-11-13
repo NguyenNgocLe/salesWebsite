@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GoiCredit;
+use App\Http\Requests\ThemGoiCreditRequest;
+use App\Http\Requests\CapNhatGoiCreditRequest;
+
 class GoiCreditController extends Controller
 {
     public function index()
@@ -19,7 +22,7 @@ class GoiCreditController extends Controller
         return view ('goi-credit.them-moi');
     }
 
-    public function store(Request $request)
+    public function store(ThemGoiCreditRequest $request)
     {
         // them goi credit tren database
         $goiCredit = new GoiCredit();
@@ -42,7 +45,7 @@ class GoiCreditController extends Controller
         return view('goi-credit.them-moi', compact('goiCredit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CapNhatGoiCreditRequest $request, $id)
     {
         // cập nhật gói credit theo id vào database
         $goiCredit = GoiCredit::find($id);

@@ -13,6 +13,15 @@
                     @endif
                         Người chơi
                 </h4>
+
+                @if($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        <strong>{{ $error }}</strong>
+                    </div>
+                    @endforeach
+                @endif
+
                 @if(isset($nguoiChoi))
                     <form action="{{ route('nguoi-choi.xu-ly-cap-nhat', ['$id' => $nguoiChoi->id]) }}" method="POST">
                 @else

@@ -6,7 +6,7 @@ use App\QuanTriVien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Requests\ThemQuanTriVienRequest;
 class QuanTriVienController extends Controller
 {
 
@@ -44,7 +44,7 @@ class QuanTriVienController extends Controller
         return view('quan-tri-vien.them-moi');
     }
 
-    public function store(Request $request)
+    public function store(ThemQuanTriVienRequest $request)
     {
         // lưu quản trị viên mới vào database
         $quanTriVien = new QuanTriVien();
@@ -67,7 +67,7 @@ class QuanTriVienController extends Controller
         return view('quan-tri-vien.them-moi', compact('quanTriVien'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ThemQuanTriVienRequest $request, $id)
     {
         // cập nhật quản trị viên vào database
         $quanTriVien = QuanTriVien::find($id);

@@ -14,11 +14,15 @@
                 </h4>
 
                 @if($errors->any())
-                <ul>
                     @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                        <div class="alert alert-danger">
+                            <strong>{{ $error }}</strong>
+                        </div>
                     @endforeach
-                </ul>
+                    @elseif(isset($msg))
+                        <div class="alert alert-success">
+                            <strong>{{ $msg }}</strong>
+                        </div>
                 @endif
 
                 @if(isset($linhVuc))
@@ -28,7 +32,7 @@
                         @endif
                         @csrf
                         <div class="form-group">
-                            <label for="ten_linh_vuc">Tên lĩnh vực:</label>
+                            <label for="ten_linh_vuc">Nhập tên lĩnh vực:</label>
                             <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" @if(isset($linhVuc)) value="{{ $linhVuc->ten_linh_vuc}}" @endif>
                         </div>
                         <button type="submit" class="btn btn-primary waves-effect waves-light">

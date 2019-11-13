@@ -14,7 +14,6 @@ class LichSuMuaCreditController extends Controller
         return view('lich-su-mua-credit.danh-sach', compact('lichSuMuaCredits'));
     }
 
-
     public function create()
     {
         //

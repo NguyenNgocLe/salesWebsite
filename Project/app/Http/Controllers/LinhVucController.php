@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LinhVuc;
 use App\Http\Requests\ThemLinhVucRequest;
+use App\Http\Requests\CapNhatLinhVucRequest;
+
 class LinhVucController extends Controller
 {
 
@@ -27,7 +29,8 @@ class LinhVucController extends Controller
         $linhVuc = new LinhVuc;
         $linhVuc->ten_linh_vuc = $request->ten_linh_vuc;
         $linhVuc->save();
-        return redirect()->route('linh-vuc.danh-sach');
+        $msg = "Thêm lĩnh vực thành công";
+        return view('linh-vuc.them-moi', compact('msg'));
     }
 
     public function show($id)
@@ -42,13 +45,14 @@ class LinhVucController extends Controller
         return view('linh-vuc.them-moi', compact('linhVuc'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CapNhatLinhVucRequest $request, $id)
     {
         // cap nhat doi tuong vao database
         $linhVuc = LinhVuc::find($id);
         $linhVuc->ten_linh_vuc = $request->ten_linh_vuc;
         $linhVuc->save();
-        return redirect()->route('linh-vuc.danh-sach');
+        $msg = "Cập nhật lĩnh vực thành công";
+        return view('linh-vuc.them-moi', compact('msg'));
     }
 
     public function destroy($id)

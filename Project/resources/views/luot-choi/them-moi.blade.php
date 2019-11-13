@@ -12,6 +12,15 @@
                     @endif
                     lượt chơi
                 </h4>
+                
+                @if($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            <strong>{{ $error }}</strong>
+                        </div>
+                    @endforeach
+                @endif
+
                 @if(isset($luotChoi))
                 <form action="{{ route('luot-choi.xu-ly-cap-nhat', ['$id' => $luotChoi->id]) }}" method="POST">
                     @else

@@ -13,6 +13,13 @@
                     @endif
                         câu hỏi
                 </h4>
+                
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>{{ $errors->first()}}</strong>
+                    </div>
+                @endif
+                
                 @if(isset($cauHoi))
                     <form action="{{ route('cau-hoi.xu-ly-cap-nhat', ['$id' => $cauHoi->id]) }}" method="POST">
                 @else
@@ -25,11 +32,12 @@
                         </div>
                         <div class="form-group">
                             <label for="ten_linh_vuc">Chọn lĩnh vực:</label>    
-                            <select class="custom-select" id="linh_vuc" name="linh_vuc">
-                                    <option>-Chọn Lĩnh vực-</option>
+                            <select class="form-control" id="linh_vuc" name="linh_vuc">
+                                @if (isset($listLinhVuc))
                                     @foreach($listLinhVuc as $linhVuc)
                                         <option @if(isset($cauHoi) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{ $linhVuc->id }}"> {{ $linhVuc->ten_linh_vuc }}</option>
                                     @endforeach
+                                @endif
                             </select>
                         </div>
                         <div class="form-group">

@@ -6,6 +6,9 @@ use App\LinhVuc;
 use App\NguoiChoi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\ThemNguoiChoiRequest;
+use App\Http\Requests\CapNhatNguoiChoiRequest;
+
 
 class NguoiChoiController extends Controller
 {
@@ -23,7 +26,7 @@ class NguoiChoiController extends Controller
         return view('nguoi-choi.them-moi');
     }
 
-    public function store(Request $request)
+    public function store(ThemNguoiChoiRequest $request)
     {
         // luu nguoi choi moi vao database
         $nguoiChoi = new NguoiChoi();
@@ -49,7 +52,7 @@ class NguoiChoiController extends Controller
         return view('nguoi-choi.them-moi', compact('nguoiChoi'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CapNhatNguoiChoiRequest $request, $id)
     {
         // cập nhật người chơi vào database
         $nguoiChoi = NguoiChoi::find($id);

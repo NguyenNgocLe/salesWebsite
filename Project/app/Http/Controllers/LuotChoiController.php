@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\LuotChoi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-
+use App\Http\Requests\ThemLuotChoiRequest;
 class LuotChoiController extends Controller
 {
     public function index()
@@ -20,7 +20,7 @@ class LuotChoiController extends Controller
         return view('luot-choi.them-moi');
     }
 
-    public function store(Request $request)
+    public function store(ThemLuotChoiRequest $request)
     {
         // thêm mới lượt chơi vào database
         $luotChoi = new LuotChoi();
@@ -43,7 +43,7 @@ class LuotChoiController extends Controller
         return view('luot-choi.them-moi', compact('luotChoi'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ThemLuotChoiRequest $request, $id)
     {
         // cập nhật người chơi vào database
         $luotChoi = LuotChoi::find($id);

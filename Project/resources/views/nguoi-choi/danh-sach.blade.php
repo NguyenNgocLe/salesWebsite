@@ -63,7 +63,8 @@
                             <th>Hình đại diện</th>
                             <th>Điểm cao nhất</th>
                             <th>Credit</th>
-                            <th>Cập nhật | Xóa</th>
+                            <th>Cập nhật</th>
+                            <th>xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,13 +78,16 @@
                                     <th>{{ $nguoiChoi->diem_cao_nhat }}</th>
                                     <th>{{ $nguoiChoi->credit }}</th>
                                     <th>
-                                            <a href="{{ route('nguoi-choi.cap-nhat', ['$id' =>$nguoiChoi->id]) }}" class="btn btn-purple waves-effect waves-light">
-                                                <i class="mdi mdi-grease-pencil"></i>
-                                            </a>
-                                            <a href="{{ route('nguoi-choi.xoa', ['$id' =>$nguoiChoi->id]) }}" class="btn btn-danger waves-effect waves-light">
-                                                <i class="mdi mdi-delete"></i>
-                                            </a>
-                                        </th>
+                                        <a href="{{ route('nguoi-choi.cap-nhat', ['$id' =>$nguoiChoi->id]) }}" class="btn btn-purple waves-effect waves-light">
+                                            <i class="mdi mdi-grease-pencil"></i>
+                                        </a>
+                                        
+                                    </th>
+                                    <th>
+                                        <a href="{{ route('nguoi-choi.xoa', ['$id' =>$nguoiChoi->id]) }}" class="btn btn-danger waves-effect waves-light">
+                                            <i class="mdi mdi-delete"></i>
+                                        </a>
+                                    </th>
                                 </tr>
                             @endforeach
                         @endif

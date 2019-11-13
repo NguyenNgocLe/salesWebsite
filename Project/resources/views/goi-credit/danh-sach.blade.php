@@ -61,7 +61,8 @@
                             <th>Tên gói</th>
                             <th>Credit</th>
                             <th>Số tiền</th>
-                            <th>Chỉnh sửa | Xóa</th>
+                            <th>Chỉnh sửa</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,6 +77,8 @@
                                 <a href="{{ route('goi-credit.cap-nhat', ['$id' =>$goiCredit->id]) }}" class="btn btn-purple waves-effect waves-light">
                                     <i class="mdi mdi-grease-pencil"></i>
                                 </a>
+                            </th>
+                            <th>
                                 <a href="{{ route('goi-credit.xoa', ['$id' =>$goiCredit->id]) }}" class="btn btn-danger waves-effect waves-light">
                                     <i class="mdi mdi-delete"></i>
                                 </a>

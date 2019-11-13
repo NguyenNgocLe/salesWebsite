@@ -58,8 +58,8 @@
                     <thead>
                         <tr>
                             <th>ID người chơi</th>
-                            <th>Số câu</th>
-                            <th>Nguoi choi</th>
+                            <th>Người chơi</th>
+                            <th>Số câu trả lời</th>
                             <th>Điểm</th>
                             <th>Cập nhật</th>
                         </tr>

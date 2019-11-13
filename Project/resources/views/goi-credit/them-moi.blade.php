@@ -13,6 +13,15 @@
                     @endif
                         gói credit
                 </h4>
+
+                @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        <strong>{{ $error }}</strong>
+                    </div>
+                @endforeach
+                @endif
+
                 @if(isset($goiCredit))
                     <form action="{{ route('goi-credit.xu-ly-cap-nhat', ['$id' => $goiCredit->id]) }}" method="POST">
                 @else

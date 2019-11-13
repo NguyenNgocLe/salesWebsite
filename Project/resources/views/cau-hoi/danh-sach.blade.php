@@ -58,12 +58,14 @@
                         <tr>
                             <th>ID</th>
                             <th>Nội dung</th>
+                            <th>Lĩnh vực</th>
                             <th>Phương án A</th>
                             <th>Phương án B</th>
                             <th>Phương án C</th>
                             <th>Phương án D</th>
                             <th>Đáp án </th>
-                            <th>Cập nhật | Xóa</th>
+                            <th>Cập nhật</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +74,7 @@
                         <tr>
                             <td>{{$cauHoi->id}}</td>
                             <td>{{$cauHoi->noi_dung}}</td>
+                            <td>{{$cauHoi->LinhVuc->ten_linh_vuc}}</td>
                             <td>{{$cauHoi->phuong_an_a}}</td>
                             <td>{{$cauHoi->phuong_an_b}}</td>
                             <td>{{$cauHoi->phuong_an_c}}</td>
@@ -82,6 +85,8 @@
                                     <i class="mdi mdi-grease-pencil">
                                     </i>
                                 </a>
+                            </th>
+                            <th>
                                 <a href="{{ route('cau-hoi.xoa', ['$id' => $cauHoi->id]) }}" class="btn btn-danger waves-effect waves-light">
                                     <i class="mdi mdi-delete">
                                     </i>

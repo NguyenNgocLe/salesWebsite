@@ -60,7 +60,8 @@
                             <th>ID</th>
                             <th>Tên đăng nhập</th>
                             <th>Họ tên</th>
-                            <th>Cập nhật | Xóa</th>
+                            <th>Cập nhật</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,13 +72,15 @@
                                     <th>{{ $quanTriVien->ten_dang_nhap }}</th>
                                     <th>{{ $quanTriVien->ho_ten }}</th>
                                     <th>
-                                            <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
-                                                <i class="mdi mdi-grease-pencil"></i>
-                                            </a>
-                                            <a href="{{ route('quan-tri-vien.xoa', ['$id' =>$quanTriVien->id]) }}" class="btn btn-danger waves-effect waves-light">
-                                                <i class="mdi mdi-delete"></i>
-                                            </a>
-                                        </th>
+                                        <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
+                                            <i class="mdi mdi-grease-pencil"></i>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="{{ route('quan-tri-vien.xoa', ['$id' =>$quanTriVien->id]) }}" class="btn btn-danger waves-effect waves-light">
+                                            <i class="mdi mdi-delete"></i>
+                                        </a>
+                                    </th>
                                 </tr>
                             @endforeach
                         @endif

@@ -59,7 +59,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên lĩnh vực</th>
-                            <th>Chỉnh sửa | Xóa</th>
+                            <th>Chỉnh sửa</th>
+                            <th>Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,11 +73,12 @@
                                 <a href="{{ route('linh-vuc.cap-nhat', ['$id' =>$linhVuc->id]) }}" class="btn btn-purple waves-effect waves-light">
                                     <i class="mdi mdi-grease-pencil"></i>
                                 </a>
+                            </th>
+                            <th> 
                                 <a href="{{ route('linh-vuc.xoa', ['$id' =>$linhVuc->id]) }}" class="btn btn-danger waves-effect waves-light">
                                     <i class="mdi mdi-delete"></i>
-                                </a>
-                            </th>
-                        </tr>
+                                </a></th>
+                            </tr>
                         @endforeach
                         @endif
                     </tbody>
