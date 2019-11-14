@@ -9,10 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ThemNguoiChoiRequest;
 use App\Http\Requests\CapNhatNguoiChoiRequest;
 
-
 class NguoiChoiController extends Controller
 {
-
     public function index()
     {
         //
@@ -22,22 +20,23 @@ class NguoiChoiController extends Controller
 
     public function create()
     {
-        // hien thi form nguoi choi
+        // hien thi form them nguoi choi
         return view('nguoi-choi.them-moi');
     }
 
     public function store(ThemNguoiChoiRequest $request)
     {
         // luu nguoi choi moi vao database
-        $nguoiChoi = new NguoiChoi();
+        $nguoiChoi                = new NguoiChoi();
         $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
         $nguoiChoi->mat_khau      = Hash::make($request->mat_khau);
         $nguoiChoi->email         = $request->email;
         $nguoiChoi->hinh_dai_dien = $request->hinh_dai_dien;
         $nguoiChoi->diem_cao_nhat = $request->diem_cao_nhat;
-        $nguoiChoi->credit = $request->credit;
+        $nguoiChoi->credit        = $request->credit;
         $nguoiChoi->save();
-        return redirect()->route('nguoi-choi.danh-sach');
+        $msg = "Thêm người chơi thành công";
+        return view('nguoi-choi.them-moi', compact('msg'));
     }
 
     public function show($id)
@@ -57,13 +56,14 @@ class NguoiChoiController extends Controller
         // cập nhật người chơi vào database
         $nguoiChoi = NguoiChoi::find($id);
         $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
-        $nguoiChoi->mat_khau = Hash::make($request->mat_khau);
-        $nguoiChoi->email = $request->email;
+        $nguoiChoi->mat_khau      = Hash::make($request->mat_khau);
+        $nguoiChoi->email         = $request->email;
         $nguoiChoi->hinh_dai_dien = $request->hinh_dai_dien;
         $nguoiChoi->diem_cao_nhat = $request->diem_cao_nhat;
-        $nguoiChoi->credit = $request->credit;
+        $nguoiChoi->credit        = $request->credit;
         $nguoiChoi->save();
-        return redirect()->route('nguoi-choi.danh-sach');
+        $msg = "Cập nhật người chơi thành công";
+        return view('nguoi-choi.them-moi', compact('msg'));
     }
 
     public function destroy($id)

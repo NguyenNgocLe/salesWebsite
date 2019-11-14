@@ -12,15 +12,15 @@
                     @endif
                     lượt chơi
                 </h4>
-                
                 @if($errors->any())
-                    @foreach ($errors->all() as $error)
                         <div class="alert alert-danger">
-                            <strong>{{ $error }}</strong>
+                            <strong>{{ $errors->first() }}</strong>
                         </div>
-                    @endforeach
+                    @elseif(isset($msg))
+                        <div class="alert alert-success">
+                            <strong>{{ $msg }}</strong>
+                        </div>
                 @endif
-
                 @if(isset($luotChoi))
                 <form action="{{ route('luot-choi.xu-ly-cap-nhat', ['$id' => $luotChoi->id]) }}" method="POST">
                     @else
@@ -29,20 +29,7 @@
                         @csrf
                         <div class="form-group">
                                 <label for="id_nguoi_choi">ID người chơi:</label>
-                                <select class="custom-select" id="luot_choi_id" name="nguoi_choi_id">
-                                        <option>-Chọn ID người chơi-</option>
-                                        @foreach($luotChois as $luotChoi) <!-- -->
-                                            <option @if(isset($luotChois) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{ $linhVuc->id }}"> {{ $linhVuc->ten_linh_vuc }}</option>
-                                        @endforeach
-                                </select>
                                 <input type="text" class="form-control" id="nguoi_choi_id" name="nguoi_choi_id" @if(isset($luotChoi)) value="{{ $luotChoi->nguoi_choi_id }}" @endif>
-                                <label for="ten_linh_vuc">Chọn lĩnh vực:</label>    
-                                <select class="custom-select" id="linh_vuc" name="linh_vuc">
-                                        <option>-Chọn Lĩnh vực-</option>
-                                        @foreach($listLinhVuc as $linhVuc)
-                                            <option @if(isset($cauHoi) && $linhVuc->id == $cauHoi->linh_vuc_id) selected @endif value="{{ $linhVuc->id }}"> {{ $linhVuc->ten_linh_vuc }}</option>
-                                        @endforeach
-                                </select>
                         </div>
                         <div class="form-group">
                             <label for="so_cau">Số câu:</label>
@@ -68,3 +55,4 @@
         </div> <!-- end card-->
     </div>
     @endsection
+     {{-- dang lam toi day --}}

@@ -30,7 +30,8 @@ class GoiCreditController extends Controller
         $goiCredit->credit = $request->credit;
         $goiCredit->so_tien = $request->so_tien;
         $goiCredit->save();
-        return redirect()->route('goi-credit.danh-sach');
+        $msg = "Thêm gói credit thành công!";
+        return view('goi-credit.them-moi', compact('msg'));
     }
 
     public function show($id)
@@ -53,7 +54,8 @@ class GoiCreditController extends Controller
         $goiCredit->credit  = $request->credit;
         $goiCredit->so_tien = $request->so_tien;
         $goiCredit->save();
-        return redirect()->route('goi-credit.danh-sach');
+        $msg = "Cập nhật gói credit thành công!";
+        return view('goi-credit.them-moi', compact('msg'));
     }
 
     public function destroy($id)

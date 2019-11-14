@@ -6,6 +6,8 @@ use App\LuotChoi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\ThemLuotChoiRequest;
+use App\Http\Requests\CapNhatLuotChoiRequest;
+
 class LuotChoiController extends Controller
 {
     public function index()
@@ -16,19 +18,20 @@ class LuotChoiController extends Controller
 
     public function create()
     {
-        // hiển thị form thêm mới
+        // hiển thị form thêm mới lượt chơi
         return view('luot-choi.them-moi');
     }
 
     public function store(ThemLuotChoiRequest $request)
     {
         // thêm mới lượt chơi vào database
-        $luotChoi = new LuotChoi();
+        $luotChoi                = new LuotChoi();
         $luotChoi->nguoi_choi_id = $request->nguoi_choi_id;
-        $luotChoi->so_cau = $request->so_cau;
-        $luotChoi->diem = $request->diem;
+        $luotChoi->so_cau        = $request->so_cau;
+        $luotChoi->diem          = $request->diem;
         $luotChoi->save();
-        return redirect()->route('luot-choi.danh-sach');
+        $msg = "Thêm lượt chơi thành công";
+        return view('luot-choi.them-moi', compact('msg'));
     }
 
     public function show($id)
@@ -46,11 +49,12 @@ class LuotChoiController extends Controller
     public function update(ThemLuotChoiRequest $request, $id)
     {
         // cập nhật người chơi vào database
-        $luotChoi = LuotChoi::find($id);
+        $luotChoi         = LuotChoi::find($id);
         $luotChoi->so_cau = $request->so_cau;
-        $luotChoi->diem = $request->diem;
+        $luotChoi->diem   = $request->diem;
         $luotChoi->save();
-        return redirect()->route('luot-choi.danh-sach');
+        $msg = "Cập nhật lượt chơi thành công";
+        return rview('luot-choi.danh-sach', compact('msg'));
     }
 
     public function destroy($id)
@@ -58,4 +62,3 @@ class LuotChoiController extends Controller
         // cập nhật trạng thái deleted vào database, ẩn item trên danh sách
     }
 }
-// dang fix dở dang phần này 

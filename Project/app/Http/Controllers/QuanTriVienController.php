@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ThemQuanTriVienRequest;
+use App\Http\Requests\CapNhatQuanTriVienRequest;
+
 class QuanTriVienController extends Controller
 {
 
@@ -52,7 +54,8 @@ class QuanTriVienController extends Controller
         $quanTriVien->mat_khau      = Hash::make($request->mat_khau);
         $quanTriVien->ho_ten        = $request->ho_ten;
         $quanTriVien->save();
-        return redirect()->route('quan-tri-vien.danh-sach');
+        $msg = "Thêm quản trị viên thành công";
+        return view('quan-tri-vien.them-moi', compact('msg'));
     }
 
     public function show($id)
@@ -67,15 +70,16 @@ class QuanTriVienController extends Controller
         return view('quan-tri-vien.them-moi', compact('quanTriVien'));
     }
 
-    public function update(ThemQuanTriVienRequest $request, $id)
+    public function update(CapNhatQuanTriVienRequest $request, $id)
     {
         // cập nhật quản trị viên vào database
-        $quanTriVien = QuanTriVien::find($id);
+        $quanTriVien                = QuanTriVien::find($id);
         $quanTriVien->ten_dang_nhap = $request->ten_dang_nhap;
-        $quanTriVien->mat_khau = Hash::make($request->mat_khau);
-        $quanTriVien->ho_ten = $request->ho_ten;
+        $quanTriVien->mat_khau      = Hash::make($request->mat_khau);
+        $quanTriVien->ho_ten        = $request->ho_ten;
         $quanTriVien->save();
-        return redirect()->route('quan-tri-vien.danh-sach');
+        $msg = "Cập nhật quản trị viên thành công";
+        return view('quan-tri-vien.them-moi', compact('msg'));
     }
 
     public function destroy($id)

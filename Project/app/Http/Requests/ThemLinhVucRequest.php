@@ -15,7 +15,7 @@ class ThemLinhVucRequest extends FormRequest
     public function rules()
     {
         return [
-            'ten_linh_vuc'  => 'required | unique:linh_vuc|max:50|min:2|bail'
+            'ten_linh_vuc'          => 'required | unique:linh_vuc|max:50|min:2|bail'
         ];
     }
 
@@ -23,9 +23,9 @@ class ThemLinhVucRequest extends FormRequest
     {
         return [
             'ten_linh_vuc.required' => 'Vui lòng nhập tên lĩnh vực!',
-            'ten_linh_vuc.unique' => 'Tên lĩnh vực đã tồn tại!',
-            'ten_linh_vuc.min' => 'Tên lĩnh vực phải nhiều hơn 2 ký tự!',
-            'ten_linh_vuc.max' => 'Tên lĩnh vực phải ít hơn 50 ký tự!'
+            'ten_linh_vuc.unique'   => 'Tên lĩnh vực đã tồn tại!',
+            'ten_linh_vuc.min'      => 'Tên lĩnh vực phải nhiều hơn 2 ký tự!',
+            'ten_linh_vuc.max'      => 'Tên lĩnh vực phải ít hơn 50 ký tự!'
         ];
     }
 }
