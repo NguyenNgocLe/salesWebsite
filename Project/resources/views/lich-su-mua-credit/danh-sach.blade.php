@@ -51,7 +51,7 @@
                     DataTables danh sách lịch sử mua gói credit:
                 </p>
 
-                <table id="basic-datatable" class="table dt-responsive nowrap">
+                <table class="table dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th>ID</th>

@@ -17,10 +17,6 @@
                         <div class="alert alert-danger">
                             <strong>{{ $errors->first() }}</strong>
                         </div>
-                    @elseif(isset($msg))
-                        <div class="alert alert-success">
-                            <strong>{{ $msg }}</strong>
-                        </div>
                 @endif
                 @if(isset($goiCredit))
                     <form action="{{ route('goi-credit.xu-ly-cap-nhat', ['$id' => $goiCredit->id]) }}" method="POST">

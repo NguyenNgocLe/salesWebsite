@@ -26,7 +26,7 @@ class LinhVucController extends Controller
     public function store(ThemLinhVucRequest $request)
     {
         // them moi 1 linh vuc
-        $linhVuc = new LinhVuc;
+        $linhVuc               = new LinhVuc;
         $linhVuc->ten_linh_vuc = $request->ten_linh_vuc;
         $linhVuc->save();
         $msg = "Thêm lĩnh vực thành công";
@@ -51,8 +51,7 @@ class LinhVucController extends Controller
         $linhVuc = LinhVuc::find($id);
         $linhVuc->ten_linh_vuc = $request->ten_linh_vuc;
         $linhVuc->save();
-        $msg = "Cập nhật lĩnh vực thành công";
-        return view('linh-vuc.them-moi', compact('msg'));
+        return redirect()->route('linh-vuc.danh-sach')->with('cap-nhat', 'Cập nhật lĩnh vực thành công');
     }
 
     public function destroy($id)

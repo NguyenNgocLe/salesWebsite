@@ -51,7 +51,7 @@
                     DataTables danh sách chi tiết lượt chơi:
                 </p>
 
-                <table id="basic-datatable" class="table dt-responsive nowrap">
+                <table class="table dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th>ID</th>

@@ -24,21 +24,36 @@
 <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
 <!-- Datatables init -->
 <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
-
+<!-- sweet alert -->
+<script src= "{{ asset('assets/js/pages/initialize/xoa.js') }}"></script>
 <!-- third party js ends -->
 @endsection
 @section('main-content')
+@if(session('cap-nhat'))
+<script type="text/javascript">Swal.fire({
+        icon: 'success',
+        title: '{{session('cap-nhat')}}',
+        showConfirmButton: false,
+        timer: 4000
+})</script>
+@endif
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Quản trị</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Danh sách</a></li>
-                    <li class="breadcrumb-item active">Quản trị viên</li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Quản trị viên</a></li>
+                    <li class="breadcrumb-item active">Danh sách quản trị viên</li>
                 </ol>
             </div>
-            <h4 class="page-title">Danh sách quản trị viên</h4>
+            <h4 class="page-title">Quản trị viên</h4>
+            <a href="{{ route('quan-tri-vien.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới</a>
+            <br/><br/>
+            @if (isset($quanTriViens))
+                <a href="{{ route('quan-tri-vien.thung-rac') }}" style="margin-bottom:10px;" class="btn btn-info waves-effect waves-light">Xem quản trị viên đã xóa</a>
+            @endif
         </div>
     </div>
 </div>
@@ -47,13 +62,6 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Thêm quản trị viên</h4>
-                <a href="{{ route('quan-tri-vien.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới
-                </a>
-                <p class="text-muted font-13 mb-4">
-                    DataTables danh sách quản trị viên:
-                </p>
-
                 <table id="basic-datatable" class="table dt-responsive nowrap">
                     <thead>
                         <tr>
@@ -68,21 +76,38 @@
                         @if (isset($quanTriViens))
                             @foreach ($quanTriViens as $quanTriVien)
                                 <tr>
-                                    <th>{{ $quanTriVien->id }}</th>
-                                    <th>{{ $quanTriVien->ten_dang_nhap }}</th>
-                                    <th>{{ $quanTriVien->ho_ten }}</th>
-                                    <th>
+                                    <td>{{ $quanTriVien->id }}</td>
+                                    <td>{{ $quanTriVien->ten_dang_nhap }}</td>
+                                    <td>{{ $quanTriVien->ho_ten }}</td>
+                                    <td style="display: none">
                                         <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
                                             <i class="mdi mdi-grease-pencil"></i>
                                         </a>
-                                    </th>
-                                    <th>
+                                    </td>
+                                    <td>
                                         <a href="{{ route('quan-tri-vien.xoa', ['$id' =>$quanTriVien->id]) }}" class="btn btn-danger waves-effect waves-light">
                                             <i class="mdi mdi-delete"></i>
                                         </a>
-                                    </th>
+                                    </td>
                                 </tr>
                             @endforeach
+                        @else
+                        @foreach ($onlyTrasheds as $quanTriVien)
+                            <tr>
+                                <td>{{ $quanTriVien->id }}</td>
+                                <td>{{ $quanTriVien->ten_dang_nhap }}</td>
+                                <td>{{ $quanTriVien->ho_ten }}</td>
+                                <td style="display: none">
+                                    <a href="{{ route('quan-tri-vien.khoi-phuc', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
+                                        Khôi phục
+                                    </a>
+                                </td>
+                                <td style="display: none">
+                                    <button class="btn btn-danger waves-effect waves-light xoa-luon" 
+                                    data-href="{{ route('quan-tri-vien.xoa-bo', ['$id' =>$quanTriVien->id]) }}">Xóa luôn </button>
+                                </th>
+                            </tr>
+                        @endforeach   
                         @endif
                     </tbody>
                 </table>

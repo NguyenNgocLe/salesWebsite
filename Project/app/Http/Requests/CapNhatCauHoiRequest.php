@@ -15,13 +15,13 @@ class CapNhatCauHoiRequest extends FormRequest
     public function rules()
     {
         return [
-            'noi_dung'         => 'required | max:255|min:3',
-            'linh_vuc'         => 'required',
-            'phuong_an_a'      => 'required |min:1',
-            'phuong_an_b'      => 'required |min:1',
-            'phuong_an_c'      => 'required |min:1',
-            'phuong_an_d'      => 'required |min:1',
-            'dap_an'           => 'required |min:1'
+            'noi_dung'         => 'bail|required|max:255|min:3',
+            'linh_vuc'         => 'bail|required',
+            'phuong_an_a'      => 'bail|required|min:1',
+            'phuong_an_b'      => 'bail|required|min:1',
+            'phuong_an_c'      => 'bail|required|min:1',
+            'phuong_an_d'      => 'bail|required|min:1',
+            'dap_an'           => 'bail|required|min:1'
         ];
     }
 

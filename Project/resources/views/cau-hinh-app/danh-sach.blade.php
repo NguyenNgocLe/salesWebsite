@@ -50,7 +50,7 @@
                 <p class="text-muted font-13 mb-4">
                     DataTables danh sách cấu hình:
                 </p>
-                <table id="basic-datatable" class="table table-striped">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>

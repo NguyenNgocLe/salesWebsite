@@ -11,14 +11,20 @@ Route::prefix('quan-tri')->group(function () {
             Route::post('them-moi', "QuanTriVienController@store")->name('xu-ly-them-moi');
             Route::get('cap-nhat/{id}', "QuanTriVienController@edit")->name('cap-nhat');
             Route::post('cap-nhat/{id}', "QuanTriVienController@update")->name('xu-ly-cap-nhat');
-            Route::get('/dang-nhap', "QuanTriVienController@DangNhap")->name('dang-nhap')->middleware('guest');
             Route::get('xoa/{id}', "QuanTriVienController@destroy")->name('xoa');
             Route::get('thung-rac', "QuanTriVienController@onlyTrashed")->name('thung-rac');
             Route::get('khoi-phuc/{id}', "QuanTriVienController@restore")->name('khoi-phuc');
-            Route::delete('xoa-bo/{id}', "QuanTriVienController@delete")->name('xoa-bo');
+            Route::get('xoa-bo/{id}', "QuanTriVienController@delete")->name('xoa-bo');
+            //
+            Route::get('/dang-nhap', "QuanTriVienController@DangNhap")->name('dang-nhap')->middleware('guest');
             Route::post('/xu-ly-dang-nhap', "QuanTriVienController@XuLyDangNhap")->name('xu-ly-dang-nhap');
-            // 
             Route::get('/dang-xuat', "QuanTriVienController@DangXuat")->name('dang-xuat');
+            //
+            Route::get('/trang-ca-nhan', 'QuanTriVienController@trangCaNhan')->name('trang-ca-nhan');
+            Route::get('/doi-ten/{id}', 'QuanTriVienController@doiTen')->name('doi-ten');
+            Route::put('/doi-ten/{id}', 'QuanTriVienController@xuLyDoiTen')->name('xu-ly-doi-ten');
+            Route::get('/doi-mat-khau/{id}', 'QuanTriVienController@doiMatKhau')->name('doi-mat-khau');
+            Route::put('/doi-mat-khau/{id}', 'QuanTriVienController@xuLyDoiMatKhau')->name('xu-ly-doi-mat-khau');
         });
     });
 });

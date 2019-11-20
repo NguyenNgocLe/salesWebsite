@@ -12,7 +12,6 @@
                     @endif
                     Quản trị viên
                 </h4>
-
                 @if($errors->any())
                         <div class="alert alert-danger">
                             <strong>{{ $errors->first() }}</strong>
@@ -22,7 +21,6 @@
                             <strong>{{ $msg }}</strong>
                         </div>
                 @endif
-
                 @if(isset($quanTriVien))
                 <form action="{{ route('quan-tri-vien.xu-ly-cap-nhat', ['$id' => $quanTriVien->id]) }}" method="POST">
                     @else

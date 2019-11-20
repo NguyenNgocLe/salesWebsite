@@ -43,6 +43,15 @@
     </div>
 </div>
 <!-- end page title -->
+
+@if(session('cap-nhat'))
+<script type="text/javascript">Swal.fire({
+        icon: 'success',
+        title: '{{session('cap-nhat')}}',
+        showConfirmButton: false,
+        timer: 4000
+})</script>
+@endif
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -54,7 +63,7 @@
                     DataTables danh sách lĩnh vực:
                 </p>
 
-                <table id="basic-datatable" class="table dt-responsive nowrap">
+                <table class="table dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th>ID</th>

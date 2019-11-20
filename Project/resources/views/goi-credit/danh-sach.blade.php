@@ -27,7 +27,7 @@
 
 <!-- third party js ends -->
 @endsection
-@section('main-content')
+@section('main-content')    
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -44,6 +44,33 @@
 </div>
 <!-- end page title -->
 <div class="row">
+    @if(session('cap-nhat'))
+    <script type="text/javascript">Swal.fire({
+            icon: 'success',
+            title: '{{session('cap-nhat')}}',
+            showConfirmButton: false,
+            timer: 4000
+    })</script>
+    @endif
+    @if (session('cap-nhat-xoa'))
+        <script type="text/javascript">Swal.fire({
+            title: 'Bạn có chắc xóa không?',
+            text: "Bạn sẽ không thể khôi phục gói credit này!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Xóa!'
+          }).then((result) => {
+            if (result.value) {
+              Swal.fire(
+                'Đã xóa!',
+                'Gói credit đã được xóa.',
+                'success'
+              )
+            }
+          })</script>
+    @endif
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -53,8 +80,7 @@
                 <p class="text-muted font-13 mb-4">
                     DataTables danh sách gói credit:
                 </p>
-
-                <table id="basic-datatable" class="table dt-responsive nowrap">
+                <table class="table dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th>ID</th>

@@ -5,12 +5,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="mb-3 header-title">
-                    @if(isset($luotChoi))
-                    Cập nhật
-                    @else
-                    Thêm
-                    @endif
-                    lượt chơi
+                    Thêm lượt chơi
                 </h4>
                 @if($errors->any())
                         <div class="alert alert-danger">
@@ -21,31 +16,22 @@
                             <strong>{{ $msg }}</strong>
                         </div>
                 @endif
-                @if(isset($luotChoi))
-                <form action="{{ route('luot-choi.xu-ly-cap-nhat', ['$id' => $luotChoi->id]) }}" method="POST">
-                    @else
-                    <form action="{{ route('luot-choi.them-moi') }}" method="POST">
-                        @endif
+                    <form action="{{ route('luot-choi.xu-ly-them-moi') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                                <label for="id_nguoi_choi">ID người chơi:</label>
-                                <input type="text" class="form-control" id="nguoi_choi_id" name="nguoi_choi_id" @if(isset($luotChoi)) value="{{ $luotChoi->nguoi_choi_id }}" @endif>
+                            <label for="id_nguoi_choi">ID người chơi:</label>
+                            <input type="text" class="form-control" id="id_nguoi_choi" name="id_nguoi_choi">
                         </div>
                         <div class="form-group">
                             <label for="so_cau">Số câu:</label>
-                            <input type="text" class="form-control" id="so_cau" name="so_cau" @if(isset($luotChoi)) value="{{ $luotChoi->so_cau }}" @endif>
+                            <input type="text" class="form-control" id="so_cau" name="so_cau">
                         </div>
                         <div class="form-group">
-                                <label for="diem">Điểm:</label>
-                                <input type="text" class="form-control" id="diem" name="diem" @if(isset($luotChoi)) value="{{ $luotChoi->diem }}" @endif>
-                            </div>
+                            <label for="diem">Điểm:</label>
+                            <input type="text" class="form-control" id="diem" name="diem">
+                        </div>
                         <button type="submit" class="btn btn-primary waves-effect waves-light">
-                            @if(isset($luotChoi))
-                            Cập nhật
-                            @else
-                            Thêm
-                            @endif
-                            Lượt chơi
+                            Thêm Lượt chơi
                         </button>
                         <a href="{{ route('luot-choi.danh-sach') }}" class="btn btn-warning waves-effect waves-light">
                             Hủy
@@ -55,4 +41,3 @@
         </div> <!-- end card-->
     </div>
     @endsection
-     {{-- dang lam toi day --}}

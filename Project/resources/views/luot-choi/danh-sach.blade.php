@@ -53,15 +53,12 @@
                 <p class="text-muted font-13 mb-4">
                     DataTables danh sách lượt chơi:
                 </p>
-
-                <table id="basic-datatable" class="table dt-responsive nowrap">
+                <table class="table dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th>ID người chơi</th>
-                            <th>Người chơi</th>
                             <th>Số câu trả lời</th>
                             <th>Điểm</th>
-                            <th>Cập nhật</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,20 +66,13 @@
                         @foreach($luotChois as $luotChoi)
                         <tr>
                             <td>{{$luotChoi->id}}</td>
-                            <td>{{$luotChoi->nguoiChoi->ten_dang_nhap}}</td>
                             <td>{{$luotChoi->so_cau}}</td>
                             <td>{{$luotChoi->diem}}</td>
-                            <td>
-                                <a href="{{ route('luot-choi.cap-nhat', ['$id' =>$luotChoi->id]) }}" class="btn btn-purple waves-effect waves-light">
-                                    <i class="mdi mdi-grease-pencil"></i>
-                                </a>
-                            </td>
                         </tr>
                         @endforeach
                         @endif
                     </tbody>
                 </table>
-
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
