@@ -62,7 +62,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <table id="basic-datatable" class="table dt-responsive nowrap">
+                <table  class="table dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -79,8 +79,8 @@
                                     <td>{{ $quanTriVien->id }}</td>
                                     <td>{{ $quanTriVien->ten_dang_nhap }}</td>
                                     <td>{{ $quanTriVien->ho_ten }}</td>
-                                    <td style="display: none">
-                                        <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
+                                    <td>
+                                        <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-secondary btn-rounded waves-effect">
                                             <i class="mdi mdi-grease-pencil"></i>
                                         </a>
                                     </td>

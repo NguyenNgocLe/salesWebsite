@@ -21,19 +21,19 @@ class LuotChoiController extends Controller
     public function create()
     {
         // hiển thị form thêm mới lượt chơi
-        return view('luot-choi.them-moi');
+        //return view('luot-choi.them-moi');
     }
 
     public function store(ThemLuotChoiRequest $request)
     {
         // thêm mới lượt chơi vào database
-        $luotChoi                = new LuotChoi();
-        $luotChoi->nguoi_choi_id = $request->id_nguoi_choi;
-        $luotChoi->so_cau        = $request->so_cau;
-        $luotChoi->diem          = $request->diem;
-        $luotChoi->save();
-        $msg = "Thêm lượt chơi thành công";
-        return view('luot-choi.them-moi', compact('msg'));
+        // $luotChoi                = new LuotChoi();
+        // $luotChoi->nguoi_choi_id = $request->id_nguoi_choi;
+        // $luotChoi->so_cau        = $request->so_cau;
+        // $luotChoi->diem          = $request->diem;
+        // $luotChoi->save();
+        // $msg = "Thêm lượt chơi thành công";
+        // return view('luot-choi.them-moi', compact('msg'));
     }
 
     public function show($id)
@@ -44,8 +44,8 @@ class LuotChoiController extends Controller
     public function edit($id)
     {
         // hiển thị form cập nhật theo id
-        $luotChoi = LuotChoi::find($id);
-        return view('luot-choi.them-moi', compact('luotChoi'));
+        // $luotChoi = LuotChoi::find($id);
+        // return view('luot-choi.them-moi', compact('luotChoi'));
     }
 
     public function update(CapNhatLuotChoiRequest $request, $id)

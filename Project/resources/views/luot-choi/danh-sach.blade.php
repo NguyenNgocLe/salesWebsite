@@ -47,9 +47,6 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Thêm mới lượt chơi</h4>
-                <a href="{{ route('luot-choi.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới
-                </a>
                 <p class="text-muted font-13 mb-4">
                     DataTables danh sách lượt chơi:
                 </p>
@@ -57,17 +54,23 @@
                     <thead>
                         <tr>
                             <th>ID người chơi</th>
-                            <th>Số câu trả lời</th>
+                            <th>Tên người chơi</th>
+                            <th>Số câu</th>
                             <th>Điểm</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @if(isset($luotChois))
                         @foreach($luotChois as $luotChoi)
                         <tr>
-                            <td>{{$luotChoi->id}}</td>
-                            <td>{{$luotChoi->so_cau}}</td>
-                            <td>{{$luotChoi->diem}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="" class="btn btn-primary waves-effect waves-light">Xem chi tiết lượt chơi</a>
+                            </td>
                         </tr>
                         @endforeach
                         @endif

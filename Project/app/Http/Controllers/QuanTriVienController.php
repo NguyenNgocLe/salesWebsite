@@ -107,7 +107,6 @@ class QuanTriVienController extends Controller
         $quanTriVien->save();
         return redirect()->route('quan-tri-vien.danh-sach')->with("cap-nhat", "Cập nhật quản trị viên thành công");
     }
-
     public function destroy($id)
     {
         // cập nhật trạng thái quản trị viên deleted vào database, ẩn item trên danh sách

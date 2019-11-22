@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>
             @section('title')
-                Website quản trị về cái Laravel
+               Laravel - Taylor Otwell
             @show
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

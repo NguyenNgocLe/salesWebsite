@@ -28,7 +28,7 @@
                     @csrf
                         <div class="form-group">
                             <label for="noi_dung">Nội dung câu hỏi:</label>
-                            <input type="text" class="form-control" id="noi_dung" name="noi_dung" @if(isset($cauHoi)) value="{{ $cauHoi->noi_dung }}" @endif>
+                            <input type="text" class="form-control" id="noi_du" name="noi_dung" @if(isset($cauHoi)) value="{{ $cauHoi->noi_dung }}" @endif>
                         </div>
                         <div class="form-group">
                             <label for="ten_linh_vuc">Chọn lĩnh vực:</label>    
