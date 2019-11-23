@@ -21,7 +21,7 @@
                     <form class="app-search">
                         <div class="app-search-box">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Tìm ở đây...">
                                 <div class="input-group-append">
                                     <button class="btn" type="submit">
                                         <i class="fe-search"></i>
@@ -35,7 +35,7 @@
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="fe-bell noti-icon"></i>
-                        <span class="badge badge-danger rounded-circle noti-icon-badge">5</span>
+                        <span class="badge badge-danger rounded-circle noti-icon-badge">10</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-lg">
 
@@ -44,9 +44,9 @@
                             <h5 class="m-0">
                                 <span class="float-right">
                                     <a href="" class="text-muted">
-                                        <small>Clear All</small>
+                                        <small>Xóa tất cả thông báo</small>
                                     </a>
-                                </span>Notification
+                                </span>Thông báo
                             </h5>
                         </div>
 
@@ -56,9 +56,9 @@
                             <a href="javascript:void(0);" class="dropdown-item notify-item active">
                                 <div class="notify-icon">
                                     <img src="{{ asset('assets/images/users/user-1.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
-                                <p class="notify-details">Cristina Pride</p>
+                                <p class="notify-details">Tippier</p>
                                 <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
+                                    <small>Xin chào!. Em ăn cơm chưa?</small>
                                 </p>
                             </a>
 
@@ -67,8 +67,8 @@
                                 <div class="notify-icon bg-primary">
                                     <i class="mdi mdi-comment-account-outline"></i>
                                 </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
+                                <p class="notify-details">Ba mẹ em ăn cơm chưa?
+                                    <small class="text-muted">1 phút trước</small>
                                 </p>
                             </a>
 
@@ -76,9 +76,9 @@
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <div class="notify-icon">
                                     <img src="{{ asset('assets/images/users/user-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
-                                <p class="notify-details">Karen Robinson</p>
+                                <p class="notify-details">Ông nội em ăn cơm chưa?</p>
                                 <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
+                                    <small>Cả nhà em ăn cơm chưa?</small>
                                 </p>
                             </a>
 
@@ -182,6 +182,7 @@
             <div class="logo-box">
                 <a href="{{ route('linh-vuc.danh-sach') }}" class="logo text-center">
                     <span class="logo-lg">
+                        
                         <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="26">
                         <!-- <span class="logo-lg-text-dark">Upvex</span> -->
                     </span>
@@ -203,47 +204,50 @@
                 <ul class="navigation-menu">
                    @if (Auth::check())
                         <li class="has-submenu">
-                            <a href="{{ route('linh-vuc.danh-sach') }}">Lĩnh vực <div class="arrow-down"></div></a>
+                            <a href="{{ route('linh-vuc.danh-sach') }}">Lĩnh vực</a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="{{ route('cau-hoi.danh-sach') }}">Câu hỏi <div class="arrow-down"></div></a>
+                            <a href="{{ route('cau-hoi.danh-sach') }}">Câu hỏi</a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="{{ route('goi-credit.danh-sach') }}">Gói credit <div class="arrow-down"></div></a>
+                            <a href="{{ route('goi-credit.danh-sach') }}">Gói credit</a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="{{ route('nguoi-choi.danh-sach') }}">Người chơi <div class="arrow-down"></div></a>
+                            <a href="{{ route('nguoi-choi.danh-sach') }}">Người chơi</a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="{{ route('luot-choi.danh-sach') }}">Lượt chơi<div class="arrow-down"></div></a>
+                            <a href="{{ route('luot-choi.danh-sach') }}">Lượt chơi</a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="{{ route('chi-tiet-luot-choi.danh-sach') }}">Chi tiết lượt chơi<div class="arrow-down"></div></a>
+                            <a href="{{ route('chi-tiet-luot-choi.danh-sach') }}">Chi tiết lượt chơi</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="{{ route('lich-su-mua-credit.danh-sach') }}">Lịch sử mua credit<div class="arrow-down"></div></a>
+                            <a href="{{ route('lich-su-mua-credit.danh-sach') }}">Lịch sử mua credit</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#">Cấu hình<div class="arrow-down"></div></a>
+                            <a href="">Cấu hình<div class="arrow-down"></div></a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="admin-widgets.html">Cấu hình điểm câu hỏi</a>
+                                    <a href="{{ route('cau-hinh-diem-cau-hoi.danh-sach') }}">Cấu hình điểm câu hỏi</a>
                                 </li>
                                 <li>
-                                    <a href="admin-sweet-alert.html">Cấu hình app</a>
+                                    <a href="{{ route('cau-hinh-app.danh-sach') }}">Cấu hình app</a>
                                 </li>
                                 <li>
-                                    <a href="admin-nestable.html">Cấu hình trợ giúp</a>
+                                    <a href="{{ route('cau-hinh-tro-giup.danh-sach') }}">Cấu hình trợ giúp</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="has-submenu">
-                            <a href="{{ route('quan-tri-vien.danh-sach') }}">Quản trị viên<div class="arrow-down"></div></a>
+                            <a href="{{ route('quan-tri-vien.danh-sach') }}">Quản trị viên</a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="">Thống kê</a>
                         </li>
                    @endif
 
@@ -257,5 +261,4 @@
         <!-- end container -->
     </div>
     <!-- end navbar-custom -->
-
 </header>

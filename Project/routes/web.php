@@ -135,6 +135,18 @@ Route::middleware('auth')->group(function () {
                 Route::post('cap-nhat/{id}', "CauHinhAppController@update")->name('xu-ly-cap-nhat');
             });
         });
+        //
+        Route::prefix('cau-hinh-diem-cau-hoi')->group(function () {
+            Route::name('cau-hinh-diem-cau-hoi.')->group(function () {
+                Route::get('/', "CauHinhDiemCauHoiController@index")->name('danh-sach');
+            });
+        });
+        //
+        Route::prefix('cau-hinh-tro-giup')->group(function () {
+            Route::name('cau-hinh-tro-giup.')->group(function () {
+                Route::get('/', "CauHinhTroGiupController@index")->name('danh-sach');
+            });
+        });
+        //
     });
 });
-// update

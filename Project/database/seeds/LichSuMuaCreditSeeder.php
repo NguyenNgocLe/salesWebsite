@@ -4,11 +4,7 @@ use Illuminate\Database\Seeder;
 
 class LichSuMuaCreditSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+   
     public function run()
     {
         //

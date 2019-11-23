@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CauHinhDiemCauHoi;
 use Illuminate\Http\Request;
 
 class CauHinhDiemCauHoiController extends Controller
@@ -9,7 +10,9 @@ class CauHinhDiemCauHoiController extends Controller
     
     public function index()
     {
-        //
+        // hiển thị danh sách cấu hình điểm câu hỏi
+        $cauHinhDiemCauHois = CauHinhDiemCauHoi::all();
+        return view('cau-hinh-diem-cau-hoi.danh-sach', compact('cauHinhDiemCauHois'));
     }
 
     public function create()

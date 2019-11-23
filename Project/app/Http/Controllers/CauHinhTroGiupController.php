@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CauHinhTroGiup;
 use Illuminate\Http\Request;
 
 class CauHinhTroGiupController extends Controller
@@ -9,7 +10,8 @@ class CauHinhTroGiupController extends Controller
     
     public function index()
     {
-        //
+        $cauHinhTroGiups = CauHinhTroGiup::all();
+        return view('cau-hinh-tro-giup.danh-sach', compact('cauHinhTroGiups'));
     }
 
     public function create()

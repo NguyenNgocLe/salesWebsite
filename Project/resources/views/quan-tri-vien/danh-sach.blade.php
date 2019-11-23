@@ -97,12 +97,12 @@
                                 <td>{{ $quanTriVien->id }}</td>
                                 <td>{{ $quanTriVien->ten_dang_nhap }}</td>
                                 <td>{{ $quanTriVien->ho_ten }}</td>
-                                <td style="display: none">
+                                <td>
                                     <a href="{{ route('quan-tri-vien.khoi-phuc', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
                                         Khôi phục
                                     </a>
                                 </td>
-                                <td style="display: none">
+                                <td>
                                     <button class="btn btn-danger waves-effect waves-light xoa-luon" 
                                     data-href="{{ route('quan-tri-vien.xoa-bo', ['$id' =>$quanTriVien->id]) }}">Xóa luôn </button>
                                 </th>

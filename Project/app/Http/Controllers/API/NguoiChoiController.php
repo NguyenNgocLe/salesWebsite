@@ -10,13 +10,16 @@ class NguoiChoiController extends Controller
 {
     public function dangNhap(Request $request)
     {
-        $tenDangNhap = $request->ten_dang_nhap;
-        $matKhau     = $request->mat_khau;
-        if (($tenDangNhap == Auth::user()->ten_dang_nhap) && (Hash::make($matKhau) == Auth::user()->mat_khau)) {
+        $thongTin = [
+            'ten_dang_nhap' => $request->ten_dang_nhap,
+            'password'      => $request->mat_khau
+        ];
+        
+        if ($token = auth('api')->attempt($thongTin)) {
             return response()->json([
                 'success'  => true,
                 'messages' => 'Đăng nhập thành công!',
-                'token'    => 'Đây là token'
+                'token'    => $token
             ]);
         }
         return response()->json([
@@ -25,16 +28,8 @@ class NguoiChoiController extends Controller
         ]);
     }
 
-    public function layThongTin(Request $request)
+    public function layThongTin()
     {
-        $token = $request->render('message_token');
-        if ($token == ("day_la_token")) {
-            return response()->json([
-                'message' => 'Token hợp lệ'
-            ]);
-        }
-        return response()->json([
-            'message' => 'Token không hợp lệ'
-        ]);
+        return auth('api')->user();
     }
 }

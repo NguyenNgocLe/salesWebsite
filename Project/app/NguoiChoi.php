@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class NguoiChoi extends Model
+class NguoiChoi extends Authenticatable implements JWTSubject
 {
     protected $table = 'nguoi_choi';
     use SoftDeletes;
@@ -15,5 +16,20 @@ class NguoiChoi extends Model
     }
     public function gotCredits(){
         return $this->belongsToMany("App\GoiCredit", "lich_su_mua_credit");
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    public function getPasswordAttribute() 
+    {
+        return $this->mat_khau;
     }
 }

@@ -35,10 +35,10 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Quản trị</a></li>
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Danh sách</a></li>
-                    <li class="breadcrumb-item active">Cấu hình</li>
+                    <li class="breadcrumb-item active">Cấu hình App</li>
                 </ol>
             </div>
-            <h4 class="page-title">Danh sách cấu hình</h4>
+            <h4 class="page-title">Danh sách cấu hình App</h4>
         </div>
     </div>
 </div>
@@ -48,7 +48,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="text-muted font-13 mb-4">
-                    DataTables danh sách cấu hình:
+                    DataTables danh sách cấu hình App:
                 </p>
                 <table class="table table-striped">
                     <thead>
@@ -62,31 +62,16 @@
                         @if(isset($cauHinhApps))
                         @foreach($cauHinhApps as $cauHinhApp)
                         <tr>
-                            <td>{{$cauHinhApp->id}}</td>
-                            <td>{{$cauHinhApp->noi_dung}}</td>
-                            <td>{{$cauHinhApp->phuong_an_a}}</td>
-                            <td>{{$cauHinhApp->phuong_an_b}}</td>
-                            <td>{{$cauHinhApp->phuong_an_c}}</td>
-                            <td>{{$cauHoi->phuong_an_d}}</td>
-                            <td>{{$cauHoi->dap_an}}</td>
-                            <th>
-                                <a href="{{ route('cau-hoi.cap-nhat', ['$id' => $cauHoi->id]) }}" class="btn btn-purple waves-effect waves-light">
-                                    <i class="mdi mdi-grease-pencil">
-                                    </i>
-                                </a>
-                                <a href="{{ route('cau-hoi.xoa', ['$id' => $cauHoi->id]) }}" class="btn btn-danger waves-effect waves-light">
-                                    <i class="mdi mdi-delete">
-                                    </i>
-                                </a>
-                            </th>
+                            <td>{{ $cauHinhApp->id }}</td>
+                            <td>{{ $cauHinhApp->co_hoi_sai }}</td>
+                            <td>{{ $cauHinhApp->thoi_gian_tra_loi }}</td>
                         </tr>
                         @endforeach
                         @endif
                     </tbody>
                 </table>
-
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col -->
-</div> 
+</div>
 @endsection
