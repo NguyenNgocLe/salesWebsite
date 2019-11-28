@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ThemQuanTriVienRequest;
 use App\Http\Requests\CapNhatQuanTriVienRequest;
+use App\Http\Requests\DoiMatKhauQuanTriVienRequest;
 use App\Http\Requests\DoiTenQuanTriVienRequest;
 
 
@@ -22,8 +23,7 @@ class QuanTriVienController extends Controller
     {
         $tenDangNhap = $request->ten_dang_nhap;
         $matKhau     = $request->mat_khau;
-        if (Auth::attempt(['ten_dang_nhap' => $tenDangNhap, 'password' => $matKhau])) 
-        {
+        if (Auth::attempt(['ten_dang_nhap' => $tenDangNhap, 'password' => $matKhau])) {
             return view('layout');
         }
         return view('quan-tri-vien.dang-nhap');
@@ -46,7 +46,7 @@ class QuanTriVienController extends Controller
         return view('quan-tri-vien.doi-ten', compact('quanTriVien'));
     }
 
-    public function xuLyDoiTen(DoiTenQuanTriVienRequest $request,$id)
+    public function xuLyDoiTen(DoiTenQuanTriVienRequest $request, $id)
     {
         $hoTen               = $request->ho_ten;
         $quanTriVien         = QuanTriVien::find($id);
@@ -59,6 +59,20 @@ class QuanTriVienController extends Controller
     {
         $quanTriVien = QuanTriVien::find('id');
         return view('quan-tri-vien.doi-mat-khau', compact('quanTriVien'));
+    }
+
+    public function xuLyDoiMatKhau(DoiMatKhauQuanTriVienRequest $request, $id)
+    {
+        // chưa cập nhật mật khẩu quản trị viên được
+        $quanTriVien       = QuanTriVien::find($id);
+        $matKhauCu         = Hash::make($request->mat_khau_cu);
+        $matKhauMoi        = Hash::make($request->mat_khau_moi);
+        $nhapLaiMatKhauMoi = Hash::make($request->mat_khau_moi_confirmation);
+        if (($quanTriVien->mat_khau  == $matKhauCu) && ($matKhauMoi == $nhapLaiMatKhauMoi)) {
+            $quanTriVien->mat_khau  = $nhapLaiMatKhauMoi;
+            return redirect()->route('quan-tri-vien.trang-ca-nhan')->with('cap-nhat', "Cập nhật quản trị viên thành công");
+        }
+        return redirect()->route('quan-tri-vien.trang-ca-nhan')->with('cap-nhat', "Cập nhật quản trị viên thành công");
     }
     //
     public function index()

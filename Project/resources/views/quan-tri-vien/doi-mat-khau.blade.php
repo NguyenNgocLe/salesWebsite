@@ -18,6 +18,13 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <b>{{ $errors->first() }}</b>
+                            </div>
+                        @endif
+                        <label>Nhập mật khẩu cũ<span class="text-danger">*</span></label>
+                        <input type="password" name="mat_khau_cu" placeholder="Nhập mật khẩu mới" class="form-control">
                         <label>Mật khẩu mới<span class="text-danger">*</span></label>
                         <input type="password" name="mat_khau_moi" placeholder="Nhập mật khẩu mới" class="form-control">
                     </div>
@@ -26,8 +33,8 @@
                         <input type="password" name="mat_khau_moi_confirmation" placeholder="Nhập lại mật khẩu mới" class="form-control">
                     </div>
                     <div class="form-group text-left mb-0">
-                        <button type="submit" class="btn btn-success waves-effect waves-light">Lưu</button>
-                        <a href="" class="btn btn-purple waves-effect waves-light">Hủy</a>
+                        <button type="submit" data-href="{{ route('quan-tri-vien.trang-ca-nhan') }}" class="btn btn-success waves-effect waves-light">Lưu</button>
+                        <a href="{{ route('quan-tri-vien.trang-ca-nhan') }}" class="btn btn-purple waves-effect waves-light">Hủy</a>
                     </div>
                 </form>
             </div>

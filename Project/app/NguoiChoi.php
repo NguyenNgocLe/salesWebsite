@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class NguoiChoi extends Authenticatable implements JWTSubject
 {
     protected $table = 'nguoi_choi';
+    protected $hidden = ['mat_khau'];
     use SoftDeletes;
     public function luotChois()
     {

@@ -148,5 +148,12 @@ Route::middleware('auth')->group(function () {
             });
         });
         //
+        // Route::prefix('thong-ke')->group(function () {
+        //     Route::name('thong-ke.')->group(function () {
+        //         Route::get('/', "ThongKeController@index")->name('thong-ke');
+        //     });
+        // });
+        //
     });
 });
+Route::get('send', 'NguoiChoiController@send');

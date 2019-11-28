@@ -14,7 +14,8 @@ class LuotChoiController extends Controller
     public function index()
     {
         $nguoiChois = NguoiChoi::all();
-        $luotChois = LuotChoi::whereIn('nguoi_choi_id', $nguoiChois->modelKeys()->get());
+        $nguoiChois = NguoiChoi::all();
+        $luotChois = LuotChoi::whereIn('nguoi_choi_id', $nguoiChois->modelKeys())->get();
         return view('luot-choi.danh-sach', compact('luotChois'));
     }
 

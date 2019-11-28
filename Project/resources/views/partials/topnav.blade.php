@@ -247,7 +247,7 @@
                             <a href="{{ route('quan-tri-vien.danh-sach') }}">Quản trị viên</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="">Thống kê</a>
+                            <a href="www.google.com">Thống kê</a>
                         </li>
                    @endif
 

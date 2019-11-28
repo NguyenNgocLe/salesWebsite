@@ -80,7 +80,7 @@
                                     <td>{{ $quanTriVien->ten_dang_nhap }}</td>
                                     <td>{{ $quanTriVien->ho_ten }}</td>
                                     <td>
-                                        <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-secondary btn-rounded waves-effect">
+                                        <a href="{{ route('quan-tri-vien.cap-nhat', ['$id' =>$quanTriVien->id]) }}" class="btn btn-purple waves-effect waves-light">
                                             <i class="mdi mdi-grease-pencil"></i>
                                         </a>
                                     </td>

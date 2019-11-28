@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 
 class NguoiChoiController extends Controller
 {
@@ -14,7 +15,6 @@ class NguoiChoiController extends Controller
             'ten_dang_nhap' => $request->ten_dang_nhap,
             'password'      => $request->mat_khau
         ];
-        
         if ($token = auth('api')->attempt($thongTin)) {
             return response()->json([
                 'success'  => true,

@@ -56,6 +56,8 @@
                             <th>ID</th>
                             <th>Cơ hội sai</th>
                             <th>Thời gian trả lời</th>
+                            <th>Cập nhật</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +67,16 @@
                             <td>{{ $cauHinhDiemCauHoi->id }}</td>
                             <td>{{ $cauHinhDiemCauHoi->thu_tu }}</td>
                             <td>{{ $cauHinhDiemCauHoi->diem }}</td>
+                            <th>
+                                <a href="" class="btn btn-purple waves-effect waves-light">
+                                    <i class="mdi mdi-grease-pencil"></i>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="" class="btn btn-danger waves-effect waves-light">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </th>
                         </tr>
                         @endforeach
                         @endif

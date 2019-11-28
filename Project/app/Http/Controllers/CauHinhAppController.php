@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use App\CauHinhApp;
 use Illuminate\Http\Request;
 
 class CauHinhAppController extends Controller
-{
-
+{   
     public function index()
     {
         // hiển thị danh sách cấu hình app

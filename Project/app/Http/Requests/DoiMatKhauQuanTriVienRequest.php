@@ -23,16 +23,16 @@ class DoiMatKhauQuanTriVienRequest extends FormRequest
     public function messages()
     {
         return [
-            'mat_khau_cu.required'               => 'Vui lòng nhập mật khẩu cũ',
-            'mat_khau_cu.min'                    => 'Mật khẩu phải từ 6 ký tự trở lên',
-            'mat_khau_cu.max'                    => 'Mật khẩu phải ít hơn 32 ký tự',
-            'mat_khau_moi.required'              => 'Vui lòng nhập mật khẩu mới',
-            'mat_khau_moi.min'                   => 'Mật khẩu phải từ 6 ký tự trở lên',
-            'mat_khau_moi.max'                   => 'Mật khẩu phải ít hơn 32 ký tự',
-            'mat_khau_moi.confirmed'             => 'Mật khẩu không trùng khớp',
-            'mat_khau_moi_confirmation.required' => 'Vui lòng nhập lại mật khẩu mới',
-            'mat_khau_moi_confirmation.min'      => 'Mật khẩu phải từ 6 ký tự trở lên',
-            'mat_khau_moi_confirmation.max'      => 'Mật khẩu phải ít hơn 32 ký tự'
+            'mat_khau_cu.required'               => 'Vui lòng nhập mật khẩu cũ!',
+            'mat_khau_cu.min'                    => 'Mật khẩu cũ phải từ 6 ký tự trở lên!',
+            'mat_khau_cu.max'                    => 'Mật khẩu cũ phải ít hơn 32 ký tự!',
+            'mat_khau_moi.required'              => 'Vui lòng nhập mật khẩu mới!',
+            'mat_khau_moi.min'                   => 'Mật khẩu mới phải từ 6 ký tự trở lên!',
+            'mat_khau_moi.max'                   => 'Mật khẩu mới phải ít hơn 32 ký tự!',
+            'mat_khau_moi_confirmation.required' => 'Vui lòng nhập lại mật khẩu mới!',
+            'mat_khau_moi_confirmation.min'      => 'Mật khẩu phải từ 6 ký tự trở lên!',
+            'mat_khau_moi_confirmation.max'      => 'Mật khẩu phải ít hơn 32 ký tự!',
+            'mat_khau_moi.confirmed'             => 'Mật khẩu không trùng khớp!'
         ];
     }
 }

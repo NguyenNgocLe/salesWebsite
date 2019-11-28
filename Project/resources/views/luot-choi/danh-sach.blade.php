@@ -57,19 +57,19 @@
                             <th>Tên người chơi</th>
                             <th>Số câu</th>
                             <th>Điểm</th>
-                            <th></th>
+                            <th>Chi Tiết lượt chơi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if(isset($luotChois))
                         @foreach($luotChois as $luotChoi)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $luotChoi->id }}</td>
+                            <td>{{ $luotChoi->NguoiChoi->ten_dang_nhap }}</td>
+                            <td>{{ $luotChoi->so_cau }}</td>
+                            <td>{{ $luotChoi->diem }}</td>
                             <td>
-                                <a href="" class="btn btn-primary waves-effect waves-light">Xem chi tiết lượt chơi</a>
+                                <a href="{{ route('chi-tiet-luot-choi.danh-sach') }}" class="btn btn-primary waves-effect waves-light">Xem chi tiết lượt chơi</a>
                             </td>
                         </tr>
                         @endforeach

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ThemNguoiChoiRequest;
 use App\Http\Requests\CapNhatNguoiChoiRequest;
+use Illuminate\Support\Facades\Session;
+use Mail;
 
 class NguoiChoiController extends Controller
 {
@@ -72,5 +74,14 @@ class NguoiChoiController extends Controller
         $nguoiChoi = NguoiChoi::find($id);
         $nguoiChoi->delete();
         return redirect()->route('nguoi-choi.danh-sach');
+    }
+    //
+    public function send()
+    {
+        //return view ('linh-vuc.danh-sach');
+        Mail::send(['text' => 'mail'], ['adsasdf', 'ngoclecaothang@gmail.com'], function ($message) {
+            //$message->to('ngoclecaothang@gmail.com', 'ngocle')->subject('Test Email');
+            $message->from('ngoclecaothang@gmail.com', 'ngocle')->subject('Ma no loi qoai!');;
+        });
     }
 }
