@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ThemNguoiChoiRequest;
 use App\Http\Requests\CapNhatNguoiChoiRequest;
 use Illuminate\Support\Facades\Session;
-use Mail;
+use Symfony\Component\Mime\Message;
 
 class NguoiChoiController extends Controller
 {
@@ -78,10 +78,23 @@ class NguoiChoiController extends Controller
     //
     public function send()
     {
-        //return view ('linh-vuc.danh-sach');
-        Mail::send(['text' => 'mail'], ['adsasdf', 'ngoclecaothang@gmail.com'], function ($message) {
-            //$message->to('ngoclecaothang@gmail.com', 'ngocle')->subject('Test Email');
-            $message->from('ngoclecaothang@gmail.com', 'ngocle')->subject('Ma no loi qoai!');;
-        });
+        return view('gui-mail.form-gui-mail');
+        // Mail::send(['text' => 'mail'], ['adsasdf', 'ngoclecaothang@gmail.com'], function ($message) {
+        //     //$message->to('ngoclecaothang@gmail.com', 'ngocle')->subject('Test Email');
+        //     $message->from('ngoclecaothang@gmail.com', 'ngocle')->subject('Ma no loi qoai!');;
+        // });
     }
+
+
+    
+
+    // public function sendMail(Request $request)
+    // {
+    //     $data = array('email' => $request->send_email);
+    //     //dd($data);
+    //     Mail::send('gui-mail.content_mail_send', $data, function($message) use ($data) {
+    //         $message->to($data['email'], 'Admin')->subject('Lấy lại mật khẩu từ Admin Lễ Ngọc');
+    //     });
+    //     return back()->with('success', 'Gửi yêu cầu thành công');
+    // }
 }

@@ -1,10 +1,65 @@
 <?php
 
-Route::post('dang-nhap', 'API\NguoiChoiController@dangNhap');
+Route::get('dang-nhap', 'API\NguoiChoiController@dangNhap');
 
 
-Route::middleware(['gan.guard:api', 'jwt.auth'])->group(function(){
+Route::middleware(['gan.guard:api', 'jwt.auth'])->group(function () {
     Route::get('thong-tin', 'API\NguoiChoiController@layThongTin');
-    //
-    //Route::post('quen-mat-khau', 'API\QuenMatKhauController@quenMatKhau');
+});
+//
+Route::prefix('nguoi-choi')->group(function () {
+    Route::get('danh-sach', 'API\NguoiChoiController@listUser');
+    Route::post('kiem-tra-dang-nhap', 'API\NguoiChoiController@checkLogin');
+    Route::post('dang-ky', 'API\NguoiChoiController@singUp');
+    Route::post('them-moi', 'API\NguoiChoiController@store');
+    Route::post('cap-nhat', 'API\NguoiChoiController@update');
+    Route::post('cap-nhat-mat-khau', 'API\NguoiChoiController@updatePassword');
+    Route::post('cap-nhat-credit', 'API\NguoiChoiController@updateCredit');
+    Route::post('tim-kiem', 'API\NguoiChoiController@getUser');
+    Route::post('luu-anh', 'API\NguoiChoiController@upload');
+});
+//
+Route::prefix('luot-choi')->group(function () {
+    Route::get('danh-sach', 'API\LuotChoiController@listPlay');
+    Route::post('them-moi', 'API\LuotChoiController@addPlay');
+});
+//
+Route::prefix('linh-vuc')->group(function () {
+    Route::get('danh-sach', 'API\LinhVucController@listField');
+});
+//
+Route::prefix('cau-hoi')->group(function () {
+    Route::post('tim-kiem', 'API\CauHoiController@getQuestionById');
+});
+//
+Route::prefix('chi-tiet-luot-choi')->group(function () {
+    Route::get('danh-sach', 'API\ChiTietLuotChoiController@playDetail');
+});
+//
+Route::prefix('cau-hinh-app')->group(function () {
+    Route::get('danh-sach', 'API\CauHinhAppController@listApp');
+});
+//
+Route::prefix('quan-tri-vien')->group(function () {
+    Route::get('danh-sach', 'API\QuanTriVienController@listManage');
+    // truyền theo query string
+    Route::post('tim-kiem', 'API\QuanTriVienController@getManageByIdQueryString');
+    // truyền theo path
+    Route::post('tim-kiem/{id}', 'API\QuanTriVienController@getManageByIdPath');
+});
+//
+Route::prefix('lich-su-mua-credit')->group(function () {
+    Route::get('danh-sach', 'API\LichSuMuaCreditController@listHistoryBuyCredit');
+    // truyền theo query string
+    Route::post('tim-kiem', 'API\LichSuMuaCreditController@getHistoryBuyCreditByIdQueryString');
+    // truyền theo path
+    Route::post('tim-kiem/{id}', 'API\LichSuMuaCreditController@getHistoryBuyCreditPathById');
+});
+//
+Route::prefix('goi-credit')->group(function () {
+    Route::get('danh-sach', 'API\GoiCreditController@listCredit');
+    // truyền theo query string
+    Route::post('tim-kiem', 'API\GoiCreditController@getCreditByIdQueryString');
+    // truyền theo path
+    Route::post('tim-kiem/{id}', 'API\GoiCreditController@getCreditPathById');
 });

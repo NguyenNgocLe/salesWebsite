@@ -156,4 +156,5 @@ Route::middleware('auth')->group(function () {
         //
     });
 });
-Route::get('send', 'NguoiChoiController@send');
+Route::get('api/quen-mat-khau', 'NguoiChoiController@send')->name('quen-mat-khau');
+Route::post('api/gui-mail', 'NguoiChoiController@sendMail')->name('gui-mail');
