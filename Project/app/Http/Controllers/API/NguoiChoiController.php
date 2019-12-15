@@ -72,12 +72,13 @@ class NguoiChoiController extends Controller
     //
     public function listUser()
     {
-        $nguoiChois = NguoiChoi::all()->sortByDesc("diem_cao_nhat");
+        $nguoiChois = NguoiChoi::where("diem_cao_nhat", ">=", 0)->orderBy("diem_cao_nhat", "DESC")->get();
+        //dd($nguoiChois);
         if ($nguoiChois != null) {
             $result = [
                 'success' => true,
                 'message' => "Lấy danh sách người chơi thành công",
-                'data'    => $nguoiChois
+                'data'    => $nguoiChois,
             ];
             return response()->json($result);
         }
