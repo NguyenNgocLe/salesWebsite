@@ -72,7 +72,7 @@ class NguoiChoiController extends Controller
     //
     public function listUser()
     {
-        $nguoiChois = NguoiChoi::all();
+        $nguoiChois = NguoiChoi::all()->sortByDesc("diem_cao_nhat");
         if ($nguoiChois != null) {
             $result = [
                 'success' => true,
@@ -94,12 +94,12 @@ class NguoiChoiController extends Controller
     {
         $nguoiChoi = NguoiChoi::where('ten_dang_nhap', $request->ten_dang_nhap)->first();
         if ($nguoiChoi != null) {
-            $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
+            //$nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
             $nguoiChoi->mat_khau      = Hash::make($request->mat_khau);
-            $nguoiChoi->email         = $nguoiChoi->email;
-            $nguoiChoi->hinh_dai_dien = $nguoiChoi->hinh_dai_dien;
-            $nguoiChoi->diem_cao_nhat = $nguoiChoi->diem_cao_nhat;
-            $nguoiChoi->credit        = $nguoiChoi->credit;
+            $nguoiChoi->email         = $request->email;
+            $nguoiChoi->hinh_dai_dien = "";
+            $nguoiChoi->diem_cao_nhat = 0;
+            $nguoiChoi->credit        = 1000;
             $nguoiChoi->save();
             return response()->json([
                 'success' => true,

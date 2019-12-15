@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\LuotChoi;
+use App\NguoiChoi;
 
 class LuotChoiController extends Controller
 {
@@ -25,12 +26,12 @@ class LuotChoiController extends Controller
     //
     public function listPlay()
     {
-        $luotChois = LuotChoi::all();
+        $luotChois  = LuotChoi::all();
         if ($luotChois != null) {
             $result = [
                 'success' => true,
                 'message' => "Lấy danh sách lượt chơi thành công",
-                'data'    => $luotChois
+                'data'    => $luotChois,
             ];
             return response()->json($result);
         }
