@@ -22,6 +22,7 @@ Route::prefix('nguoi-choi')->group(function () {
 //
 Route::prefix('luot-choi')->group(function () {
     Route::get('danh-sach', 'API\LuotChoiController@listPlay');
+    Route::get('danh-sach/{id}', 'API\LuotChoiController@listPlayById');
     Route::post('them-moi', 'API\LuotChoiController@addPlay');
 });
 //

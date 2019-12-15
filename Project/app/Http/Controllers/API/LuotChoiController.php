@@ -40,4 +40,20 @@ class LuotChoiController extends Controller
             'message'     => "Lấy danh sách lượt chơi thất bại"
         ]);
     }
+    public function listPlayById(Request $request)
+    {
+        $luotChois  = LuotChoi::all()->where("id", $request->id);
+        if ($luotChois != null) {
+            $result = [
+                'success' => true,
+                'message' => "Lấy danh sách lượt chơi thành công",
+                'data'    => $luotChois,
+            ];
+            return response()->json($result);
+        }
+        return response()->json([
+            'success'     => false,
+            'message'     => "Lấy danh sách lượt chơi thất bại"
+        ]);
+    }
 }
