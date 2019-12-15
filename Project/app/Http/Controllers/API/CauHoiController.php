@@ -20,4 +20,13 @@ class CauHoiController extends Controller
         ];
         return response()->json($result);
     }
+    public function listQuestion()
+    {
+        $cauHoi = CauHoi::all();
+        $result = [
+            'success' => true,
+            'data'    => $cauHoi
+        ];
+        return response()->json($result);
+    }
 }

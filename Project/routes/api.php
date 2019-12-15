@@ -32,6 +32,8 @@ Route::prefix('linh-vuc')->group(function () {
 //
 Route::prefix('cau-hoi')->group(function () {
     Route::post('tim-kiem', 'API\CauHoiController@getQuestionById');
+    Route::get('danh-sach', 'API\CauHoiController@listQuestion');
+
 });
 //
 Route::prefix('chi-tiet-luot-choi')->group(function () {
