@@ -13,7 +13,7 @@ class CauHoiController extends Controller
     {
         $page   = $request->page;
         $limit  = $request->limit;
-        $cauHoi = CauHoi::where('linh_vuc_id',$request->linh_vuc_id)->orderBy('id',"ASC")->skip(($page-1)*$limit)->take($limit)->get();
+        $cauHoi = CauHoi::where('linh_vuc_id', $request->linh_vuc_id)->orderBy('id', "ASC")->skip(($page - 1) * $limit)->take($limit)->get();
         $result = [
             'success' => true,
             'total'   => CauHoi::count(),
@@ -33,14 +33,16 @@ class CauHoiController extends Controller
 
     public function getQuestionByCategoryId($id)
     {
-        $linhVucs = LinhVuc::all()->random($id);
-        $data = CauHoi::where('linh_vuc_id', $id)->get()->random(1);
-        if($data != null)
-        {
+        // $linhVucsID = LinhVuc::where("id", $id)->get();
+        // $linhVucs = LinhVuc::all()->random($id);
+        $cauHois = CauHoi::all();
+        $cauHois = CauHoi::where("linh_vuc_id", $id)->get();
+        //$data = CauHoi::where('linh_vuc_id', $id)->get()->random(1);
+        if ($cauHois != null) {
             return $result = [
                 'success' => true,
                 'message' => "Lấy danh sách câu hỏi theo lĩnh vực thành công",
-                'data'    => $data
+                'data'    => $cauHois
             ];
             return response()->json($result);
         }
@@ -50,7 +52,8 @@ class CauHoiController extends Controller
         ]);
     }
 
-    public function LayRandCauHoiTheoIDLinhVuc() {
+    public function LayRandCauHoiTheoIDLinhVuc()
+    {
         $listLinhVuc = LinhVuc::all()->random(1);
         $linhVucID = $listLinhVuc[0]->id;
         $data = CauHoi::where('linh_vuc_id', 1)->get()->random(1);
