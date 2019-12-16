@@ -9,6 +9,8 @@ Route::middleware(['gan.guard:api', 'jwt.auth'])->group(function () {
 //
 Route::prefix('nguoi-choi')->group(function () {
     Route::get('danh-sach', 'API\NguoiChoiController@listUser');
+    Route::get('danh-sach/{id}', 'API\NguoiChoiController@getListUserById');
+    Route::get('danh-sach-nguoi-choi', 'API\NguoiChoiController@getListUserByIdParameter');
     Route::post('kiem-tra-dang-nhap', 'API\NguoiChoiController@checkLogin');
     Route::post('dang-ky', 'API\NguoiChoiController@singUp');
     Route::post('them-moi', 'API\NguoiChoiController@store');
@@ -31,6 +33,7 @@ Route::prefix('linh-vuc')->group(function () {
 });
 //
 Route::prefix('cau-hoi')->group(function () {
+    Route::get('linh-vuc/{id}', 'API\CauHoiController@getQuestionByCategoryId');
     Route::post('tim-kiem', 'API\CauHoiController@getQuestionById');
     Route::get('danh-sach', 'API\CauHoiController@listQuestion');
 
@@ -58,11 +61,13 @@ Route::prefix('lich-su-mua-credit')->group(function () {
     Route::post('tim-kiem', 'API\LichSuMuaCreditController@getHistoryBuyCreditByIdQueryString');
     // truyền theo path
     Route::post('tim-kiem/{id}', 'API\LichSuMuaCreditController@getHistoryBuyCreditPathById');
+    // cập nhật lịch sử mua credit
+    Route::post('cap-nhat-lich-su-mua', 'API\LichSuMuaCreditController@updateHistoryBuyCreditById');
 });
 //
 Route::prefix('goi-credit')->group(function () {
     Route::get('danh-sach', 'API\GoiCreditController@listCredit');
-    // truyền theo query string
+    // truyền theo query string 
     Route::post('tim-kiem', 'API\GoiCreditController@getCreditByIdQueryString');
     // truyền theo path
     Route::post('tim-kiem/{id}', 'API\GoiCreditController@getCreditPathById');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CauHoi;
+use App\LinhVuc;
 
 class CauHoiController extends Controller
 {
@@ -28,5 +29,35 @@ class CauHoiController extends Controller
             'data'    => $cauHoi
         ];
         return response()->json($result);
+    }
+
+    public function getQuestionByCategoryId($id)
+    {
+        $linhVucs = LinhVuc::all()->random($id);
+        $data = CauHoi::where('linh_vuc_id', $id)->get()->random(1);
+        if($data != null)
+        {
+            return $result = [
+                'success' => true,
+                'message' => "Lấy danh sách câu hỏi theo lĩnh vực thành công",
+                'data'    => $data
+            ];
+            return response()->json($result);
+        }
+        return response()->json([
+            'success'     => false,
+            'message'     => "Lấy danh sách câu hỏi theo lĩnh vực thất bại",
+        ]);
+    }
+
+    public function LayRandCauHoiTheoIDLinhVuc() {
+        $listLinhVuc = LinhVuc::all()->random(1);
+        $linhVucID = $listLinhVuc[0]->id;
+        $data = CauHoi::where('linh_vuc_id', 1)->get()->random(1);
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Lấy câu hỏi theo id lĩnh vực thành công',
+            'data'      => $data
+        ]);
     }
 }

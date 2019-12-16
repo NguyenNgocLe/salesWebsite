@@ -32,7 +32,7 @@ class NguoiChoiController extends Controller
 
     public function singUp(Request $request)
     {
-        $nguoiChoi = NguoiChoi::where('ten_dang_nhap', $request->ten_dang_nhap)->orWhere('email',$request->email)->first();
+        $nguoiChoi = NguoiChoi::where('ten_dang_nhap', $request->ten_dang_nhap)->orWhere('email', $request->email)->first();
         $flage     = false;
         if ($nguoiChoi == null) {
             $nguoiChoi                = new NguoiChoi();
@@ -60,13 +60,13 @@ class NguoiChoiController extends Controller
             $result = [
                 'success' => true,
                 'message' => "Đăng nhập thành công",
-                'data'    => $nguoiChoi
+                'data'    => $nguoiChoi,
             ];
             return response()->json($result);
         }
         return response()->json([
             'success' => false,
-            'message' => "Đăng nhập thất bại"
+            'message' => "Đăng nhập thất bại",
         ]);
     }
     //
@@ -84,9 +84,44 @@ class NguoiChoiController extends Controller
         }
         return response()->json([
             'success'     => false,
-            'message'     => "Lấy danh sách người chơi thất bại"
+            'message'     => "Lấy danh sách người chơi thất bại",
         ]);
     }
+
+    public function getListUserById($id)
+    {
+        $nguoiChoi = NguoiChoi::find($id);
+        if ($nguoiChoi != null) {
+            $result = [
+                'success' => true,
+                'message' => "Lấy người chơi theo id thành công",
+                'data'    => $nguoiChoi,
+            ];
+            return response()->json($result);
+        }
+        return response()->json([
+            'success'     => false,
+            'message'     => "Lấy người chơi theo id thất bại",
+        ]);
+    }
+    // function này bị lỗi chỗ id không có vẫn thông báo thành công!
+    public function getListUserByIdParameter(Request $request)
+    {
+        $nguoiChoi = NguoiChoi::where("id", $request->id)->get();
+        if ($nguoiChoi != null) {
+            $result = [
+                'success' => true,
+                'message' => "Lấy người chơi theo tham số id thành công",
+                'data'    => $nguoiChoi,
+            ];
+            return response()->json($result);
+        }
+        return response()->json([
+            'success'     => false,
+            'message'     => "Lấy người chơi theo tham số id thất bại",
+        ]);
+    }
+    //
 
     public function store(Request $request)
     { }
