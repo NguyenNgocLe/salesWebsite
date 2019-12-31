@@ -77,4 +77,4 @@
         </div>
         <!-- end page -->
     </body>
-#endsection
+@endsection
