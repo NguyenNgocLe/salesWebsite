@@ -56,7 +56,7 @@ class NguoiChoiController extends Controller
     public function update(CapNhatNguoiChoiRequest $request, $id)
     {
         // cập nhật người chơi vào database
-        $nguoiChoi = NguoiChoi::find($id);
+        $nguoiChoi                = NguoiChoi::find($id);
         $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
         $nguoiChoi->mat_khau      = Hash::make($request->mat_khau);
         $nguoiChoi->email         = $request->email;

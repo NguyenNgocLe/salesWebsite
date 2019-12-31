@@ -38,7 +38,7 @@
                     <li class="breadcrumb-item active">Cấu hình điểm câu hỏi</li>
                 </ol>
             </div>
-            <h4 class="page-title">Danh sách cấu hình Điểm câu hỏi</h4>
+            <h4 class="page-title">Danh sách cấu hình điểm câu hỏi</h4>
         </div>
     </div>
 </div>
@@ -47,15 +47,18 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <h4 class="header-title">Thêm cấu hình điểm câu hỏi</h4>
+                <a href="{{ route('cau-hinh-diem-cau-hoi.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới
+                </a>
                 <p class="text-muted font-13 mb-4">
-                    DataTables danh sách cấu hình App:
+                    DataTables cấu hình điểm câu hỏi:
                 </p>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Cơ hội sai</th>
-                            <th>Thời gian trả lời</th>
+                            <th>Thứ tự</th>
+                            <th>Điểm</th>
                             <th>Cập nhật</th>
                             <th>Xóa</th>
                         </tr>
@@ -68,7 +71,7 @@
                             <td>{{ $cauHinhDiemCauHoi->thu_tu }}</td>
                             <td>{{ $cauHinhDiemCauHoi->diem }}</td>
                             <th>
-                                <a href="" class="btn btn-purple waves-effect waves-light">
+                                <a href="{{ route('cau-hinh-diem-cau-hoi.cap-nhat', ['$id' =>$cauHinhDiemCauHoi->id]) }}" class="btn btn-purple waves-effect waves-light">
                                     <i class="mdi mdi-grease-pencil"></i>
                                 </a>
                             </th>

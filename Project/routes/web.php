@@ -139,12 +139,17 @@ Route::middleware('auth')->group(function () {
         Route::prefix('cau-hinh-diem-cau-hoi')->group(function () {
             Route::name('cau-hinh-diem-cau-hoi.')->group(function () {
                 Route::get('/', "CauHinhDiemCauHoiController@index")->name('danh-sach');
+                Route::get('them-moi', "CauHinhDiemCauHoiController@create")->name('them-moi');
+                Route::post('them-moi',"CauHinhDiemCauHoiController@store")->name("xu-ly-them-moi");
+                Route::get('cap-nhat/{id}', "CauHinhDiemCauHoiController@edit")->name('cap-nhat');
+                Route::post('cap-nhat/{id}', "cauHinhDiemCauHoiController@update")->name('xu-ly-cap-nhat');
             });
         });
         //
         Route::prefix('cau-hinh-tro-giup')->group(function () {
             Route::name('cau-hinh-tro-giup.')->group(function () {
                 Route::get('/', "CauHinhTroGiupController@index")->name('danh-sach');
+
             });
         });
         //
