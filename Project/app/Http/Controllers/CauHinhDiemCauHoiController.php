@@ -62,6 +62,6 @@ class CauHinhDiemCauHoiController extends Controller
         // cập nhật trạng thái deleted vào database, ẩn item trên danh sách
         $cauHinhDiemCauHoi = CauHinhDiemCauHoi::find($id);
         $cauHinhDiemCauHoi->delete();
-        return redirect()->route('cau-hinh-diem-cau-hoi.danh-sach');
+        return redirect()->route('cau-hinh-diem-cau-hoi.danh-sach')->with('cap-nhat', 'Xóa cấu hình điểm câu hỏi thành công');;
     }
 }
