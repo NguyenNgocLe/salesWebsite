@@ -73,7 +73,7 @@ class NguoiChoiController extends Controller
         // cập nhật trạng thái deleted vào database, ẩn item trên danh sách
         $nguoiChoi = NguoiChoi::find($id);
         $nguoiChoi->delete();
-        return redirect()->route('nguoi-choi.danh-sach');
+        return redirect()->route('nguoi-choi.danh-sach')->with('cap-nhat', "Xóa người chơi thành công");
     }
     //
     public function send()
