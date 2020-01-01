@@ -76,7 +76,7 @@
                                 </a>
                             </th>
                             <th>
-                                <a href="" class="btn btn-danger waves-effect waves-light">
+                                <a href="{{ route('cau-hinh-diem-cau-hoi.xoa-bo', ['$id' =>$cauHinhDiemCauHoi->id]) }}" class="btn btn-danger waves-effect waves-light">
                                     <i class="mdi mdi-delete"></i>
                                 </a>
                             </th>

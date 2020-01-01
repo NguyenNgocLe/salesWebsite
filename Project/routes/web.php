@@ -143,6 +143,7 @@ Route::middleware('auth')->group(function () {
                 Route::post('them-moi',"CauHinhDiemCauHoiController@store")->name("xu-ly-them-moi");
                 Route::get('cap-nhat/{id}', "CauHinhDiemCauHoiController@edit")->name('cap-nhat');
                 Route::post('cap-nhat/{id}', "cauHinhDiemCauHoiController@update")->name('xu-ly-cap-nhat');
+                Route::delete('xoa/{id}', "cauHinhDiemCauHoiController@destroy")->name('xoa-bo');
             });
         });
         //

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CauHinhDiemCauHoi;
 use Illuminate\Http\Request;
 use App\Http\Requests\CapNhatCauHinhDiemCauHoiRequest;
+use App\Http\Requests\ThemCauHinhDiemCauHoiRequest;
 
 class CauHinhDiemCauHoiController extends Controller
 {
@@ -22,7 +23,7 @@ class CauHinhDiemCauHoiController extends Controller
         return view('cau-hinh-diem-cau-hoi.them-moi');
     }
 
-    public function store(Request $request)
+    public function store(ThemCauHinhDiemCauHoiRequest $request)
     {
         // lưu cấu hình điểm câu hỏi ms vào store
         $cauHinhDiemCauHoi         = new CauHinhDiemCauHoi();
@@ -53,7 +54,7 @@ class CauHinhDiemCauHoiController extends Controller
         $cauHinhDiemCauHoi->diem   = $request->diem;
         $cauHinhDiemCauHoi->save();
         $msg = "Cập nhật cấu hình điểm câu hỏi thành công";
-        return view("cau-hinh-diem-cau-hoi.danh-sach", compact("msg"));
+        return view("cau-hinh-diem-cau-hoi.them-moi", compact("msg"));
     }
 
     public function destroy($id)
