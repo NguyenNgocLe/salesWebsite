@@ -133,6 +133,7 @@ Route::middleware('auth')->group(function () {
                 Route::post('them-moi', "CauHinhAppController@store")->name('xu-ly-them-moi');
                 Route::get('cap-nhat/{id}', "CauHinhAppController@edit")->name('cap-nhat');
                 Route::post('cap-nhat/{id}', "CauHinhAppController@update")->name('xu-ly-cap-nhat');
+                Route::get('xoa/{id}', "CauHinhAppController@destroy")->name('xoa-bo');
             });
         });
         //
