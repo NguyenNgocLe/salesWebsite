@@ -58,7 +58,7 @@
                                     <img src="{{ asset('assets/images/users/user-1.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                 <p class="notify-details">Tippier</p>
                                 <p class="text-muted mb-0 user-msg">
-                                    <small>Xin chào!. Em ăn cơm chưa?</small>
+                                    <small>Người chơi 123123 đã mua credit.</small>
                                 </p>
                             </a>
 
@@ -67,8 +67,8 @@
                                 <div class="notify-icon bg-primary">
                                     <i class="mdi mdi-comment-account-outline"></i>
                                 </div>
-                                <p class="notify-details">Ba mẹ em ăn cơm chưa?
-                                    <small class="text-muted">1 phút trước</small>
+                                <p class="notify-details">Người chơi minhtan đang cần sự trợ giúp!
+                                    <small class="text-muted">1 phút trước.</small>
                                 </p>
                             </a>
 
@@ -76,9 +76,9 @@
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <div class="notify-icon">
                                     <img src="{{ asset('assets/images/users/user-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
-                                <p class="notify-details">Ông nội em ăn cơm chưa?</p>
+                                <p class="notify-details">Người chơi hongan đã đăng nhập tài khoản</p>
                                 <p class="text-muted mb-0 user-msg">
-                                    <small>Cả nhà em ăn cơm chưa?</small>
+                                    <small>5 phút trước.</small>
                                 </p>
                             </a>
 
@@ -87,8 +87,8 @@
                                 <div class="notify-icon bg-warning">
                                     <i class="mdi mdi-account-plus"></i>
                                 </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
+                                <p class="notify-details">thanhtuan đã đăng ký hệ thống.
+                                    <small class="text-muted">15 phút trước.</small>
                                 </p>
                             </a>
 
@@ -97,8 +97,8 @@
                                 <div class="notify-icon bg-info">
                                     <i class="mdi mdi-comment-account-outline"></i>
                                 </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
+                                <p class="notify-details">ngocle đã liên hệ với admin
+                                    <small class="text-muted">4 ngày trước.</small>
                                 </p>
                             </a>
 
@@ -107,16 +107,16 @@
                                 <div class="notify-icon bg-secondary">
                                     <i class="mdi mdi-heart"></i>
                                 </div>
-                                <p class="notify-details">Carlos Crouch liked
+                                <p class="notify-details">dinhson đã thích hệ thống của bạn
                                     <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
+                                    <small class="text-muted">13 ngày trước.</small>
                                 </p>
                             </a>
                         </div>
 
                         <!-- All-->
                         <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
+                            Xem tất cả
                             <i class="fi-arrow-right"></i>
                         </a>
 

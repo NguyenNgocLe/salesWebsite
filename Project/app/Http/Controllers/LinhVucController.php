@@ -59,7 +59,7 @@ class LinhVucController extends Controller
         // xoa bo doi tuong
         $linhVuc = LinhVuc::find($id);
         $linhVuc->delete();
-        return redirect()->route('linh-vuc.danh-sach');
+        return redirect()->route('linh-vuc.danh-sach')->with('cap-nhat', "Xóa lĩnh vực thành công");
     }
 
     public function delete($id)

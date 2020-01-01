@@ -4,9 +4,13 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ThemCauHinhAppRequest extends FormRequest
+class CapNhatCauHinhAppRequest extends FormRequest
 {
-    
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
     public function authorize()
     {
         return true;
@@ -29,6 +33,7 @@ class ThemCauHinhAppRequest extends FormRequest
             'co_hoi_sai.max'             => 'Vui lòng nhập cơ hội sai phải bé hơn 20 ký tự!',
             'thoi_gian_tra_loi.min'      => 'Vui lòng nhập thời gian trả lời phải lớn hơn 1 ký tự!',
             'thoi_gian_tra_loi.max'      => 'Vui lòng nhập thời gian trả lời phải bé hơn 20 ký tự!',
+
         ];
     }
 }

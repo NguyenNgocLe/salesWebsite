@@ -24,10 +24,19 @@
 <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
 <!-- Datatables init -->
 <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
-
+<!-- sweet alert -->
+<script src= "{{ asset('assets/js/pages/initialize/xoa.js') }}"></script>
 <!-- third party js ends -->
 @endsection
 @section('main-content')
+@if(session('cap-nhat'))
+<script type="text/javascript">Swal.fire({
+        icon: 'success',
+        title: '{{session('cap-nhat')}}',
+        showConfirmButton: false,
+        timer: 4000
+})</script>
+@endif
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">

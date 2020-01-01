@@ -74,6 +74,6 @@ class CauHoiController extends Controller
         // cập nhật trạng thái xóa lại theo thời gian xóa
         $cauHoi = CauHoi::find($id);
         $cauHoi->delete();
-        return redirect()->route('cau-hoi.danh-sach');
+        return redirect()->route('cau-hoi.danh-sach')->with('cap-nhat', "Xóa câu hỏi thành công");
     }
 }

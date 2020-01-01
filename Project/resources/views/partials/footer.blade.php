@@ -6,9 +6,9 @@
             </div>
             <div class="col-md-6">
                 <div class="text-md-right footer-links d-none d-sm-block">
-                    <a href="javascript:void(0);">Giới thiệu</a>
-                    <a href="javascript:void(0);">Hỗ trợ</a>
-                    <a href="javascript:void(0);">Liên hệ</a>
+                    <a href="https://github.com/LeNgocNguyen">Giới thiệu</a>
+                    <a href="https://www.facebook.com/LeNgoc2408">Hỗ trợ</a>
+                    <a href="https://www.facebook.com/LeNgoc2408">Liên hệ</a>
                 </div>
             </div>
         </div>
