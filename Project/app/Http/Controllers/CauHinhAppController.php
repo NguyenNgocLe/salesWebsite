@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Mail;
 use App\CauHinhApp;
+use App\Http\Requests\CapNhatCauHinhAppRequest;
 use App\Http\Requests\ThemCauHinhAppRequest;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,7 @@ class CauHinhAppController extends Controller
         return view('cau-hinh-app.them-moi', compact('cauHinhApp'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CapNhatCauHinhAppRequest $request, $id)
     {
         // cập nhật cấu hình app vào database
         $cauHinhApp                      = CauHinhApp::find($id);
