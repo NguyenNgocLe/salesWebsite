@@ -26,11 +26,12 @@ class CauHinhDiemCauHoiController extends Controller
     public function store(ThemCauHinhDiemCauHoiRequest $request)
     {
         // lưu cấu hình điểm câu hỏi ms vào store
-        $cauHinhDiemCauHoi         = new CauHinhDiemCauHoi();
-        $cauHinhDiemCauHoi->thu_tu = $request->thu_tu;
-        $cauHinhDiemCauHoi->diem   = $request->diem;
+        $cauHinhDiemCauHoi                = new CauHinhDiemCauHoi();
+        $cauHinhDiemCauHoi->loai_tro_giup = $request->loai_tro_giup;
+        $cauHinhDiemCauHoi->thu_tu        = $request->thu_tu;
+        $cauHinhDiemCauHoi->credit        = $request->credit;
         $cauHinhDiemCauHoi->save();
-        $msg                       = "Thêm cấu hình điểm câu hỏi thành công";
+        $msg                              = "Thêm cấu hình điểm câu hỏi thành công";
         return view('cau-hinh-diem-cau-hoi.them-moi', compact('msg'));
     }
 
@@ -53,7 +54,7 @@ class CauHinhDiemCauHoiController extends Controller
         $cauHinhDiemCauHoi->thu_tu = $request->thu_tu;
         $cauHinhDiemCauHoi->diem   = $request->diem;
         $cauHinhDiemCauHoi->save();
-        $msg = "Cập nhật cấu hình điểm câu hỏi thành công";
+        $msg                       = "Cập nhật cấu hình điểm câu hỏi thành công";
         return view("cau-hinh-diem-cau-hoi.them-moi", compact("msg"));
     }
 
@@ -62,6 +63,6 @@ class CauHinhDiemCauHoiController extends Controller
         // cập nhật trạng thái deleted vào database, ẩn item trên danh sách
         $cauHinhDiemCauHoi = CauHinhDiemCauHoi::find($id);
         $cauHinhDiemCauHoi->delete();
-        return redirect()->route('cau-hinh-diem-cau-hoi.danh-sach')->with('cap-nhat', 'Xóa cấu hình điểm câu hỏi thành công');;
+        return redirect()->route('cau-hinh-diem-cau-hoi.danh-sach')->with('cap-nhat', 'Xóa cấu hình điểm câu hỏi thành công');
     }
 }

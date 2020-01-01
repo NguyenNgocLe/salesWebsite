@@ -151,7 +151,11 @@ Route::middleware('auth')->group(function () {
         Route::prefix('cau-hinh-tro-giup')->group(function () {
             Route::name('cau-hinh-tro-giup.')->group(function () {
                 Route::get('/', "CauHinhTroGiupController@index")->name('danh-sach');
-
+                Route::get('them-moi', "CauHinhTroGiupController@create")->name('them-moi');
+                Route::post('them-moi',"CauHinhTroGiupController@store")->name("xu-ly-them-moi");
+                Route::get('cap-nhat/{id}', "CauHinhTroGiupController@edit")->name('cap-nhat');
+                Route::post('cap-nhat/{id}', "CauHinhTroGiupController@update")->name('xu-ly-cap-nhat');
+                Route::get('xoa/{id}', "CauHinhTroGiupController@destroy")->name('xoa-bo');
             });
         });
         //

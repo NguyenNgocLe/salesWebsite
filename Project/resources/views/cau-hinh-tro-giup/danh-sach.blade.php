@@ -24,10 +24,20 @@
 <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
 <!-- Datatables init -->
 <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
+<!-- sweet alert -->
+<script src= "{{ asset('assets/js/pages/initialize/xoa.js') }}"></script>
 
 <!-- third party js ends -->
 @endsection 
 @section('main-content')
+@if(session('cap-nhat'))
+<script type="text/javascript">Swal.fire({
+        icon: 'success',
+        title: '{{session('cap-nhat')}}',
+        showConfirmButton: false,
+        timer: 4000
+})</script>
+@endif
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -39,6 +49,8 @@
                 </ol>
             </div>
             <h4 class="page-title">Danh sách cấu hình trợ giúp</h4>
+            <a href="{{ route('cau-hinh-tro-giup.them-moi') }}" class="btn btn-primary waves-effect waves-light">Thêm mới</a>
+            <br/><br/>
         </div>
     </div>
 </div>
@@ -63,16 +75,24 @@
                     </thead>
                     <tbody>
                         @if(isset($cauHinhTroGiups))
-                        @foreach($cauHinhTroGiups as $cauHinhTroGiup)
-                        <tr>
-                            <td>{{ $cauHinhTroGiup->id }}</td>
-                            <td>{{ $cauHinhTroGiup->loai_tro_giup }}</td>
-                            <td>{{ $cauHinhTroGiup->thu_tu }}</td>
-                            <td>{{ $cauHinhTroGiup->credit }}</td>
-                            <td>...</td>
-                            <td>...</td>
-                        </tr>
-                        @endforeach
+                            @foreach($cauHinhTroGiups as $cauHinhTroGiup)
+                            <tr>
+                                <td>{{ $cauHinhTroGiup->id }}</td>
+                                <td>{{ $cauHinhTroGiup->loai_tro_giup }}</td>
+                                <td>{{ $cauHinhTroGiup->thu_tu }}</td>
+                                <td>{{ $cauHinhTroGiup->credit }}</td>
+                                <th>
+                                    <a href="{{ route('cau-hinh-tro-giup.cap-nhat', ['$id' =>$cauHinhTroGiup->id]) }}" class="btn btn-purple waves-effect waves-light">
+                                        <i class="mdi mdi-grease-pencil"></i>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="{{ route('cau-hinh-tro-giup.xoa-bo', ['$id' =>$cauHinhTroGiup->id]) }}" class="btn btn-danger waves-effect waves-light">
+                                        <i class="mdi mdi-delete"></i>
+                                    </a>
+                                </th>
+                            </tr>
+                            @endforeach
                         @endif
                     </tbody>
                 </table>
