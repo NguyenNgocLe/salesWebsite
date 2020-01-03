@@ -17,7 +17,7 @@ class NguoiChoiController extends Controller
             'ten_dang_nhap' => $request->ten_dang_nhap,
             'password'      => $request->mat_khau
         ];
-        if ($token = auth('api')->attempt($thongTin)) {
+        if ($token = auth('nguoi_choi-api')->attempt($thongTin)) {
             return response()->json([
                 'success'  => true,
                 'messages' => 'Đăng nhập thành công!',

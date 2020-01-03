@@ -5,10 +5,9 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
 
-class NguoiChoi extends Model 
-//Authenticatable implements JWTSubject
+class NguoiChoi extends Authenticatable implements JWTSubject
 {
     protected $table = 'nguoi_choi';
     protected $hidden = ['mat_khau'];
