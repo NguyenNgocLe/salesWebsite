@@ -1,6 +1,6 @@
 <?php
 Route::get("/", function () {
-    return view('layout');
+    return view('quan-tri-vien.dang-nhap');
 })->name("layout");
 
 Route::prefix('quan-tri')->group(function () {

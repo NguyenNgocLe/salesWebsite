@@ -12,6 +12,7 @@ Route::prefix('nguoi-choi')->group(function () {
     Route::get('danh-sach/{id}', 'API\NguoiChoiController@getListUserById');
     Route::get('danh-sach-nguoi-choi', 'API\NguoiChoiController@getListUserByIdParameter');
     Route::post('kiem-tra-dang-nhap', 'API\NguoiChoiController@checkLogin');
+    Route::post('dang-nhap', 'API\NguoiChoiController@dangNhap');
     Route::post('dang-ky', 'API\NguoiChoiController@singUp');
     Route::post('them-moi', 'API\NguoiChoiController@store');
     Route::post('cap-nhat', 'API\NguoiChoiController@update');
@@ -19,7 +20,6 @@ Route::prefix('nguoi-choi')->group(function () {
     Route::post('cap-nhat-credit', 'API\NguoiChoiController@updateCredit');
     Route::post('tim-kiem', 'API\NguoiChoiController@getUser');
     Route::post('luu-anh', 'API\NguoiChoiController@upload');
-    // còn cái gửi mail để lấy lại mật khẩu
 });
 //
 Route::prefix('luot-choi')->group(function () {

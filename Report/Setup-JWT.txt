@@ -1,0 +1,107 @@
+Bước 1: Cài đặt gói jwt.
+	+Ở commandline gõ lệnh "composer require tymon/jwt-auth:1.0.*"
+
+Bước 2: Tạo secret key.
+	+Ở commandline gõ lệnh "php artisan jwt:secret"
+
+Bước 3: Publish JWTAuth Provider --> tạo file jwt.php trong thư mục config
+	+Ở commandline gõ lệnh "php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider""
+
+Bước 4: Khai báo thư viện cho nhân /app/Http/Kernel.php, thêm 2 dòng vào mảng $routeMiddleware
+	+'jwt.auth' => \Tymon\WJTAuth\Http\Middleware\Authenticate::class,
+	+'jwt.refresh' => \Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
+
+Bước 5: Implements interface JWTSubject vào Model cần chứng thực.
+	+use Illuminate\Foundation\Auth\User as Authenticatable;
+	+use Tymon\JWTAuth\Contracts\JWTSubject;
+	+Model cần chứng thực không extends từ Model mà extends từ Authenticatable
+	+Override 2 method:
+		+public function getJWTIdentifier()
+		{
+			return $this->getKey();
+		}
+
+		+public function getJWTCustomClaims()
+		{
+			return [];
+		}
+	+Thêm vào nếu model cần:
+	public function getPasswordAttribute()
+    	{
+        	return $this->mat_khau;
+    	}
+
+    	++Thêm vào nếu model cần:
+	protected $hidden = ['mat_khau'];
+
+Bước 6: Cấu hình lại file auth.php
+	+'defaults' => [
+        	'guard' => 'nguoi_choi-api',
+        	'passwords' => 'users',
+    	],
+	+'guards' => [
+        	'web' => [
+            		'driver' => 'session',
+            		'provider' => 'users',
+        	],
+
+        	'nguoi_choi-api' => [
+            		'driver' => 'jwt',
+            		'provider' => 'nguoi_choi-api',
+        	],
+   	 ],
+	+'providers' => [
+        	'nguoi_choi-api' => [
+            		'driver' => 'eloquent',
+            		'model' => App\NguoiChoi::class,
+        	],
+    	],
+
+Bước 7: Xử lý ngoại các lệ (token không hợp lệ, token hết hạn, blacklisted) trong tập tin /app/Exceptions/Handler.php.
+	+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+	+public function render($request, Exception $exception)
+    	{
+        	if ($exception instanceof UnauthorizedHttpException) {
+            	$preException = $exception->getPrevious();
+            	if ($preException instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+                	$result = [
+                   		'message' => 'TOKEN_EXPIRED',
+                    		'code' => 401
+                	];
+                	return response()->json($result);
+            } else if ($preException instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+           		$result = [
+                    		'message' => 'TOKEN_INVALID',
+                    		'code' => 401
+                	];
+                	return response()->json($result);
+            	} else if ($preException instanceof \Tymon\JWTAuth\Exceptions\TokenBlacklistedException) {
+                	$result = [
+                    		'message' => 'TOKEN_BLACKLISTED',
+                    		'code' => 401
+                	];
+                	return response()->json($result);
+           	}
+           	if ($exception->getMessage() === 'Token not provided') {
+                	$result = [
+                    		'message' => 'Token not provided',
+                    		'code' => 401
+                	];
+                	return response()->json($result);
+           		}
+        	}
+        	return parent::render($request, $exception);
+    	}
+
+
+Bước 8: Fix JWT guard
+	+Tạo middleware AssignGuard, ở commandline gõ lệnh "php artisan make:middleware AssignGuard"
+	+Thêm vào Kernel.php lệnh "'assign.guard' => \App\Http\Middleware\AssignGuard::class,"
+	+Thêm vào Http\Middleware\AssignGuard.php
+        public function handle($request, Closure $next, $guard = null)
+    	{
+        	if($guard != null){
+            		auth()->shouldUse($guard);
+        	}
+        	return $next($request);
+    	}
