@@ -20,7 +20,6 @@ Route::prefix('nguoi-choi')->group(function () {
     Route::post('cap-nhat-credit', 'API\NguoiChoiController@updateCredit');
     Route::post('tim-kiem', 'API\NguoiChoiController@getUser');
     Route::post('luu-anh', 'API\NguoiChoiController@upload');
-    // còn cái gửi mail để lấy lại mật khẩu
 });
 //
 Route::prefix('luot-choi')->group(function () {
