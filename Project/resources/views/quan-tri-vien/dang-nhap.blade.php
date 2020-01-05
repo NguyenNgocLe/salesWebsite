@@ -12,19 +12,27 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="card">
                             <div class="card-body p-4">
-                                
+    
                                 <h5 class="auth-title">Đăng nhập</h5>
 
                                 <form action="{{ route('quan-tri-vien.xu-ly-dang-nhap') }}" method="POST">
                                     @csrf
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">Tên đăng nhập</label>
-                                        <input class="form-control" type="text" id="emailaddress" name="ten_dang_nhap" required="" placeholder="Tên đăng nhập">
+                                        <input class="form-control" type="text" id="emailaddress" name="ten_dang_nhap" placeholder="Tên đăng nhập">
                                     </div>
-
+                                    @if($errors->any())
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $errors->first() }}</strong>
+                                        </div>
+                                    @elseif(isset($msg))
+                                        <div class="alert alert-success">
+                                            <strong>{{ $msg }}</strong>
+                                        </div>
+                                    @endif
                                     <div class="form-group mb-3">
                                         <label for="password">Mật khẩu</label>
-                                        <input class="form-control" type="password" required="" name="mat_khau" id="password" placeholder="Mật khẩu">
+                                        <input class="form-control" type="password" name="mat_khau" id="password" placeholder="Mật khẩu">
                                     </div>
 
                                     <div class="form-group mb-3">

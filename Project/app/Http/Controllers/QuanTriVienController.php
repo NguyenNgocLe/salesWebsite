@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\QuanTriVien;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ThemQuanTriVienRequest;
 use App\Http\Requests\CapNhatQuanTriVienRequest;
 use App\Http\Requests\DoiMatKhauQuanTriVienRequest;
 use App\Http\Requests\DoiTenQuanTriVienRequest;
-
+use App\Http\Requests\QuanTriVienDangNhapRequest;
 
 class QuanTriVienController extends Controller
 {
@@ -19,7 +18,7 @@ class QuanTriVienController extends Controller
         return view('quan-tri-vien.dang-nhap');
     }
 
-    public function xuLyDangNhap(Request $request)
+    public function xuLyDangNhap(QuanTriVienDangNhapRequest $request)
     {
         $tenDangNhap = $request->ten_dang_nhap;
         $matKhau     = $request->mat_khau;
